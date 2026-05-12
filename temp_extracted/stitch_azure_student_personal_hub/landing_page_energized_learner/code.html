@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>StudyPro | Academic Excellence</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "surface": "#f7f9fb",
+                    "outline-variant": "#c4c5d9",
+                    "on-background": "#191c1e",
+                    "tertiary": "#00623d",
+                    "surface-tint": "#104af0",
+                    "secondary": "#7b24dc",
+                    "secondary-container": "#9547f7",
+                    "primary": "#0040df",
+                    "on-tertiary-fixed-variant": "#005232",
+                    "background": "#f7f9fb",
+                    "on-tertiary-fixed": "#002111",
+                    "on-primary-fixed": "#001355",
+                    "surface-container-highest": "#e0e3e5",
+                    "on-surface": "#191c1e",
+                    "primary-fixed-dim": "#b8c3ff",
+                    "surface-dim": "#d8dadc",
+                    "on-error-container": "#93000a",
+                    "on-primary-container": "#efefff",
+                    "primary-fixed": "#dde1ff",
+                    "tertiary-container": "#007d4f",
+                    "on-surface-variant": "#434656",
+                    "primary-container": "#2d5bff",
+                    "error-container": "#ffdad6",
+                    "outline": "#747688",
+                    "surface-container": "#eceef0",
+                    "surface-bright": "#f7f9fb",
+                    "on-error": "#ffffff",
+                    "inverse-surface": "#2d3133",
+                    "tertiary-fixed": "#50ffaf",
+                    "on-secondary-container": "#fffbff",
+                    "on-tertiary": "#ffffff",
+                    "secondary-fixed-dim": "#d8b9ff",
+                    "surface-container-low": "#f2f4f6",
+                    "inverse-on-surface": "#eff1f3",
+                    "tertiary-fixed-dim": "#00e293",
+                    "on-secondary": "#ffffff",
+                    "on-tertiary-container": "#bcffd5",
+                    "error": "#ba1a1a",
+                    "on-primary-fixed-variant": "#0035bd",
+                    "on-secondary-fixed-variant": "#6200bc",
+                    "inverse-primary": "#b8c3ff",
+                    "on-secondary-fixed": "#290055",
+                    "on-primary": "#ffffff",
+                    "surface-container-high": "#e6e8ea",
+                    "surface-container-lowest": "#ffffff",
+                    "surface-variant": "#e0e3e5",
+                    "secondary-fixed": "#eddcff"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "unit": "8px",
+                    "margin-mobile": "16px",
+                    "card-gap": "20px",
+                    "gutter": "24px",
+                    "container-padding": "32px",
+                    "xxl": "48px"
+            },
+            "fontFamily": {
+                    "headline-lg": ["Poppins"],
+                    "label-bold": ["Poppins"],
+                    "body-md": ["Poppins"],
+                    "display-lg": ["Poppins"],
+                    "headline-md": ["Poppins"],
+                    "headline-lg-mobile": ["Poppins"],
+                    "body-lg": ["Poppins"],
+                    "label-sm": ["Poppins"],
+                    "label-md": ["Poppins"]
+            },
+            "fontSize": {
+                    "headline-lg": ["32px", {"lineHeight": "40px", "letterSpacing": "-0.01em", "fontWeight": "700"}],
+                    "label-bold": ["14px", {"lineHeight": "20px", "fontWeight": "600"}],
+                    "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                    "display-lg": ["48px", {"lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                    "headline-md": ["24px", {"lineHeight": "32px", "fontWeight": "600"}],
+                    "headline-lg-mobile": ["24px", {"lineHeight": "32px", "fontWeight": "700"}],
+                    "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "400"}],
+                    "label-sm": ["12px", {"lineHeight": "16px", "fontWeight": "500"}],
+                    "label-md": ["14px", {"lineHeight": "20px", "fontWeight": "500"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        body {
+            background-color: #f7f9fb;
+            color: #191c1e;
+            font-family: 'Poppins', sans-serif;
+        }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .energized-card {
+            background: #ffffff;
+            border-radius: 1.5rem;
+            box-shadow: 0 10px 30px -10px rgba(0, 64, 223, 0.1);
+            border: 1px solid #eceef0;
+            transition: all 0.3s ease;
+        }
+        .energized-card:hover {
+            box-shadow: 0 20px 40px -15px rgba(123, 36, 220, 0.15);
+            transform: translateY(-4px);
+        }
+        .vibrant-gradient {
+            background: linear-gradient(135deg, #0040df 0%, #7b24dc 100%);
+        }
+    </style>
+</head>
+<body class="selection:bg-primary-fixed selection:text-on-primary-fixed">
+<header class="flex justify-between items-center h-20 px-gutter fixed top-0 w-full z-50 bg-white/80 backdrop-blur-xl border-b border-surface-container">
+<div class="flex items-center gap-2">
+<div class="w-10 h-10 vibrant-gradient rounded-xl flex items-center justify-center shadow-lg shadow-primary/20">
+<span class="material-symbols-outlined text-white text-[24px]">school</span>
+</div>
+<span class="font-headline-md text-headline-md font-bold text-on-surface">StudyPro</span>
+</div>
+<div class="hidden md:flex gap-lg items-center">
+<nav class="flex gap-xl font-label-md text-label-md text-on-surface-variant">
+<a class="hover:text-primary transition-colors font-semibold" href="#">Features</a>
+<a class="hover:text-primary transition-colors font-semibold" href="#">Testimonials</a>
+<a class="hover:text-primary transition-colors font-semibold" href="#">Pricing</a>
+</nav>
+<div class="flex gap-md ml-lg">
+<button class="px-lg py-sm rounded-full font-label-bold text-label-bold text-on-surface hover:bg-surface-container transition-colors">Login</button>
+<button class="px-lg py-sm rounded-full font-label-bold text-label-bold vibrant-gradient text-white shadow-lg shadow-primary/30 hover:brightness-110 transition-all active:scale-95">Register</button>
+</div>
+</div>
+<button class="md:hidden text-on-surface">
+<span class="material-symbols-outlined">menu</span>
+</button>
+</header>
+<main class="pt-40 pb-xxl overflow-x-hidden">
+<!-- Hero Section -->
+<section class="max-w-7xl mx-auto px-gutter text-center mb-xxl relative">
+<div class="absolute top-0 left-1/2 -translate-x-1/2 w-[600px] h-[400px] bg-primary/5 blur-[120px] rounded-full -z-10"></div>
+<div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-primary-fixed text-on-primary-fixed-variant border border-primary/10 mb-md">
+<span class="w-2 h-2 rounded-full bg-primary animate-pulse"></span>
+<span class="font-label-bold text-label-sm">New: Shared Workspaces available</span>
+</div>
+<h1 class="font-display-lg text-display-lg text-on-surface mb-md max-w-4xl mx-auto tracking-tight">
+            Master Your Academic Journey with <span class="text-transparent bg-clip-text vibrant-gradient">Intelligent Productivity.</span>
+</h1>
+<p class="font-body-lg text-body-lg text-on-surface-variant max-w-2xl mx-auto mb-xl leading-relaxed">
+            The all-in-one digital companion designed for high-performance students. Notes, tasks, and schedules—all in one vibrant interface.
+        </p>
+<div class="max-w-2xl mx-auto mb-xl relative">
+<div class="flex items-center bg-white shadow-2xl shadow-primary/10 border border-surface-container-highest rounded-2xl p-2 focus-within:ring-4 focus-within:ring-primary/10 transition-all group">
+<span class="material-symbols-outlined text-outline ml-sm group-focus-within:text-primary">search</span>
+<input class="bg-transparent border-none focus:ring-0 text-on-surface w-full px-sm font-body-md py-sm" placeholder="Search for courses, notes, or features..." type="text"/>
+<button class="vibrant-gradient text-white px-xl py-sm rounded-xl font-label-bold shadow-lg shadow-primary/20 hover:scale-[1.02] active:scale-95 transition-transform">Search</button>
+</div>
+</div>
+<div class="flex flex-col items-center gap-sm">
+<div class="flex -space-x-3">
+<img alt="Student 1" class="w-12 h-12 rounded-full border-4 border-white shadow-sm" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCqGnoCZUGlIyh9htR1h3FRGlaf2uxBs7PHeR9vUx5cJs6UuHuQpNh7uCBWQvoqaqdW8_d48HFAOWNqZ1CXwXwzmnNfKyNkmjrDRsukjhnIIgnxkc3lgpFfwkcIWAf4SfBxjrbzekeRIH5fM-udgklO2GqHs4JS0PlOqcaUxSr854ykwrB3bchF_RL84W-1_ydZEQG07PVwcbJhE1NGtFDhj4BjEUGI4mf0BJl1FB4wvdeKAaux2_EkgvaX28TqKrk_wN_EzRvsdyu4"/>
+<img alt="Student 2" class="w-12 h-12 rounded-full border-4 border-white shadow-sm" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBRcbb03LnwvFoe7GahASC7IMzTlPIfahK6fRsUjbYD2gwSGgPAjALCXDTDr4EN76eEz2jYVJudOrjvRJhdBWa83Hee374NqcyXY4SIiq3Wcz8-FrHUlM1I1v84i-zNPn_gFeCnDXQ-mY2TiHmIjP66rcmGERlxldKH1nJ3YtoqmnWLkJ8L9aBx3piL80xm70UKnWIacT_ONt7qzTM70mqAXiUuqSadqVm_n7pwG2V6M9BjLftTRU32OwtgP_n763UgTVQnZMdp4nOr"/>
+<img alt="Student 3" class="w-12 h-12 rounded-full border-4 border-white shadow-sm" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCuYX-dXDKl4wglDk7B_0dUxSi5fcbg-qf3OxpexvELB3dTlJEYVei4A8xLqELUrv132N2MUehbENk411O2Yo9S2pd_IyiUsHWY5NeRMGNK87Nusv2ams_waYF2wBBejfcocI79GPSk8Svm3D_6QGFrBJID6yLEsflRnJ3ETTvyZRGfxhZ0VLAl8nPMdYMRvE-mUusi4_yvFTiVVUNE0dQPK_dWck3c-TzbmWGhrQl2gzY10hE3YT24BxA-zwskRTuQJuy5-fYenjLX"/>
+<div class="w-12 h-12 rounded-full border-4 border-white bg-secondary-fixed text-on-secondary-fixed-variant flex items-center justify-center text-[12px] font-bold shadow-sm">+10k</div>
+</div>
+<div class="text-center">
+<p class="font-label-bold text-label-bold text-on-surface">Trusted by 10,000+ Students</p>
+<div class="flex justify-center text-secondary">
+<span class="material-symbols-outlined text-[20px]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-[20px]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-[20px]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-[20px]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-[20px]" style="font-variation-settings: 'FILL' 1;">star</span>
+</div>
+</div>
+</div>
+</section>
+<!-- Features Grid -->
+<section class="max-w-7xl mx-auto px-gutter grid grid-cols-1 md:grid-cols-12 gap-card-gap">
+<div class="md:col-span-8 energized-card p-10 relative overflow-hidden h-[450px] group">
+<div class="absolute inset-0 bg-gradient-to-t from-white via-white/80 to-transparent z-10"></div>
+<div class="relative z-20 h-full flex flex-col justify-end">
+<h3 class="font-headline-lg text-headline-lg text-on-surface mb-xs">Unified Student Dashboard</h3>
+<p class="font-body-md text-body-md text-on-surface-variant max-w-md">Access your entire academic life from a single, beautiful workspace designed for deep focus.</p>
+</div>
+<img alt="Dashboard Preview" class="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 opacity-60" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDrBQaydOZxoqrMI_UBL_5lfb2qPLPSKT1k3lNtBptN4-K-x8FIIrRSR6NE7mHi-VY8UM0XZfeLWmt1hL9vWu0OAeieQ8MVfQlu5vl86ustBZOy5lJyvGgAt6ClIAZKcmegNqEU0RjaJcduk2IYsENU6i2AX_DOjnkxgdNbrotcmPO1wpAfo_-AHziLGJeSrxgkFL-WkNL74MmtMCRz2mO7rYxdUas_DKp6HDIL6r2L4EQK2ILicD4_bixkyqGr0wbgKwzslWq5Jw8a"/>
+</div>
+<div class="md:col-span-4 energized-card p-8 flex flex-col justify-between">
+<div class="w-14 h-14 bg-primary-container rounded-2xl flex items-center justify-center mb-md">
+<span class="material-symbols-outlined text-primary text-headline-md">description</span>
+</div>
+<div>
+<h4 class="font-headline-md text-headline-md text-on-surface mb-xs">Smart Notes</h4>
+<p class="font-body-md text-body-md text-on-surface-variant">Markdown-powered note-taking with automated tagging and linking.</p>
+</div>
+<button class="mt-lg text-primary font-label-bold flex items-center gap-xs group">
+                Explore Notes <span class="material-symbols-outlined group-hover:translate-x-1 transition-transform">arrow_forward</span>
+</button>
+</div>
+<div class="md:col-span-4 energized-card p-8 flex flex-col justify-between h-[320px]">
+<div class="w-14 h-14 bg-secondary-fixed rounded-2xl flex items-center justify-center mb-md">
+<span class="material-symbols-outlined text-secondary text-headline-md">checklist</span>
+</div>
+<div>
+<h4 class="font-headline-md text-headline-md text-on-surface mb-xs">Focus Tasks</h4>
+<p class="font-body-md text-body-md text-on-surface-variant">Prioritize assignments using the Eisenhower matrix and pomodoro timers.</p>
+</div>
+</div>
+<div class="md:col-span-4 energized-card p-8 flex flex-col justify-between h-[320px]">
+<div class="w-14 h-14 bg-tertiary-fixed rounded-2xl flex items-center justify-center mb-md">
+<span class="material-symbols-outlined text-tertiary text-headline-md">quiz</span>
+</div>
+<div>
+<h4 class="font-headline-md text-headline-md text-on-surface mb-xs">AI Flashcards</h4>
+<p class="font-body-md text-body-md text-on-surface-variant">Automatically generate study decks from your existing lecture notes.</p>
+</div>
+</div>
+<div class="md:col-span-4 energized-card p-8 flex flex-col justify-between h-[320px]">
+<div class="w-14 h-14 bg-primary-fixed rounded-2xl flex items-center justify-center mb-md">
+<span class="material-symbols-outlined text-primary text-headline-md">calendar_month</span>
+</div>
+<div>
+<h4 class="font-headline-md text-headline-md text-on-surface mb-xs">Dynamic Calendar</h4>
+<p class="font-body-md text-body-md text-on-surface-variant">Sync with Google and Outlook to never miss a deadline or exam.</p>
+</div>
+</div>
+<!-- CTA Section -->
+<div class="md:col-span-12 vibrant-gradient rounded-[2.5rem] p-12 md:p-16 flex flex-col md:flex-row items-center justify-between gap-xl relative overflow-hidden">
+<div class="absolute top-0 right-0 w-64 h-64 bg-white/10 blur-3xl rounded-full -translate-y-1/2 translate-x-1/2"></div>
+<div class="max-w-xl relative z-10 text-center md:text-left">
+<span class="font-label-bold text-label-sm text-white/80 block mb-2 uppercase tracking-widest">WISHLIST &amp; REWARDS</span>
+<h3 class="font-display-lg text-headline-lg text-white mb-md leading-tight">Gamify Your Academic Success</h3>
+<p class="font-body-md text-body-md text-white/90">Earn points for completing study sessions and unlock items from your academic wishlist. Education meets motivation.</p>
+</div>
+<div class="flex flex-col sm:flex-row gap-md relative z-10">
+<button class="px-xl py-4 rounded-2xl bg-white text-primary font-bold font-headline-md hover:scale-105 transition-transform active:scale-95 shadow-xl shadow-black/10">Get Started Free</button>
+<button class="px-xl py-4 rounded-2xl border-2 border-white/30 text-white font-bold font-headline-md hover:bg-white/10 transition-colors">View Demo</button>
+</div>
+</div>
+</section>
+<!-- Social Proof -->
+<section class="mt-xxl max-w-7xl mx-auto px-gutter pb-xxl">
+<div class="text-center mb-xl">
+<h2 class="font-headline-lg text-headline-lg text-on-surface mb-2">Empowering Top Scholars</h2>
+<p class="font-body-md text-body-md text-on-surface-variant">Designed for students who demand the best from their digital tools.</p>
+</div>
+<div class="grid grid-cols-2 md:grid-cols-5 gap-xl items-center opacity-40 hover:opacity-100 transition-opacity duration-500">
+<div class="flex items-center justify-center font-bold text-headline-md text-outline italic">HARVARD</div>
+<div class="flex items-center justify-center font-bold text-headline-md text-outline italic">STANFORD</div>
+<div class="flex items-center justify-center font-bold text-headline-md text-outline italic">MIT</div>
+<div class="flex items-center justify-center font-bold text-headline-md text-outline italic">OXFORD</div>
+<div class="flex items-center justify-center font-bold text-headline-md text-outline italic">CALTECH</div>
+</div>
+</section>
+</main>
+<footer class="bg-white border-t border-surface-container-highest pt-20 pb-12">
+<div class="max-w-7xl mx-auto px-gutter">
+<div class="grid grid-cols-1 md:grid-cols-4 gap-xl mb-16">
+<div class="md:col-span-1">
+<div class="flex items-center gap-2 mb-6">
+<div class="w-8 h-8 vibrant-gradient rounded-lg flex items-center justify-center">
+<span class="material-symbols-outlined text-white text-[18px]">school</span>
+</div>
+<span class="font-headline-md text-headline-md font-bold text-on-surface">StudyPro</span>
+</div>
+<p class="font-body-md text-body-md text-on-surface-variant mb-md">Elevating the student experience through precision design and intelligent features.</p>
+</div>
+<div>
+<h5 class="font-label-bold text-label-bold text-on-surface mb-6">Product</h5>
+<ul class="space-y-4 font-label-md text-label-md text-on-surface-variant">
+<li><a class="hover:text-primary transition-colors" href="#">Features</a></li>
+<li><a class="hover:text-primary transition-colors" href="#">Pricing</a></li>
+<li><a class="hover:text-primary transition-colors" href="#">Integrations</a></li>
+<li><a class="hover:text-primary transition-colors" href="#">Roadmap</a></li>
+</ul>
+</div>
+<div>
+<h5 class="font-label-bold text-label-bold text-on-surface mb-6">Support</h5>
+<ul class="space-y-4 font-label-md text-label-md text-on-surface-variant">
+<li><a class="hover:text-primary transition-colors" href="#">Help Center</a></li>
+<li><a class="hover:text-primary transition-colors" href="#">Community</a></li>
+<li><a class="hover:text-primary transition-colors" href="#">Status</a></li>
+<li><a class="hover:text-primary transition-colors" href="#">Contact</a></li>
+</ul>
+</div>
+<div>
+<h5 class="font-label-bold text-label-bold text-on-surface mb-6">Legal</h5>
+<ul class="space-y-4 font-label-md text-label-md text-on-surface-variant">
+<li><a class="hover:text-primary transition-colors" href="#">Privacy Policy</a></li>
+<li><a class="hover:text-primary transition-colors" href="#">Terms of Service</a></li>
+<li><a class="hover:text-primary transition-colors" href="#">Cookie Policy</a></li>
+</ul>
+</div>
+</div>
+<div class="flex flex-col md:flex-row items-center justify-between pt-8 border-t border-surface-container gap-6">
+<p class="font-label-sm text-label-sm text-on-surface-variant">© 2024 StudyPro Academic Solutions. Designed for Excellence.</p>
+<div class="flex gap-lg text-on-surface-variant">
+<span class="material-symbols-outlined cursor-pointer hover:text-primary transition-colors">language</span>
+<span class="material-symbols-outlined cursor-pointer hover:text-primary transition-colors">forum</span>
+<span class="material-symbols-outlined cursor-pointer hover:text-primary transition-colors">public</span>
+</div>
+</div>
+</div>
+</footer>
+</body></html>

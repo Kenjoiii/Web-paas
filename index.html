@@ -1,12 +1,168 @@
-<!DOCTYPE html>
-<html lang="">
+<!doctype html>
+<html lang="en" class="light">
   <head>
-    <meta charset="UTF-8">
-    <link rel="icon" href="/favicon.ico">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Vite App</title>
+    <meta charset="UTF-8" />
+    <link rel="icon" href="/favicon.ico" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Student Personal Dashboard</title>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap"
+      rel="stylesheet"
+    />
+    <script>
+      tailwind.config = {
+        darkMode: 'class',
+        theme: {
+          extend: {
+            colors: {
+              surface: '#f7f9fb',
+              'outline-variant': '#c4c5d9',
+              'on-background': '#191c1e',
+              tertiary: '#00623d',
+              'surface-tint': '#104af0',
+              secondary: '#7b24dc',
+              'secondary-container': '#9547f7',
+              primary: '#0040df',
+              'on-tertiary-fixed-variant': '#005232',
+              background: '#f7f9fb',
+              'on-tertiary-fixed': '#002111',
+              'on-primary-fixed': '#001355',
+              'surface-container-highest': '#e0e3e5',
+              'on-surface': '#191c1e',
+              'primary-fixed-dim': '#b8c3ff',
+              'surface-dim': '#d8dadc',
+              'on-error-container': '#93000a',
+              'on-primary-container': '#efefff',
+              'primary-fixed': '#dde1ff',
+              'tertiary-container': '#007d4f',
+              'on-surface-variant': '#434656',
+              'primary-container': '#2d5bff',
+              'error-container': '#ffdad6',
+              outline: '#747688',
+              'surface-container': '#eceef0',
+              'surface-bright': '#f7f9fb',
+              'on-error': '#ffffff',
+              'inverse-surface': '#2d3133',
+              'tertiary-fixed': '#50ffaf',
+              'on-secondary-container': '#fffbff',
+              'on-tertiary': '#ffffff',
+              'secondary-fixed-dim': '#d8b9ff',
+              'surface-container-low': '#f2f4f6',
+              'inverse-on-surface': '#eff1f3',
+              'tertiary-fixed-dim': '#00e293',
+              'on-secondary': '#ffffff',
+              'on-tertiary-container': '#bcffd5',
+              error: '#ba1a1a',
+              'on-primary-fixed-variant': '#0035bd',
+              'on-secondary-fixed-variant': '#6200bc',
+              'inverse-primary': '#b8c3ff',
+              'on-secondary-fixed': '#290055',
+              'on-primary': '#ffffff',
+              'surface-container-high': '#e6e8ea',
+              'surface-container-lowest': '#ffffff',
+              'surface-variant': '#e0e3e5',
+              'secondary-fixed': '#eddcff',
+            },
+            borderRadius: {
+              DEFAULT: '0.25rem',
+              lg: '0.5rem',
+              xl: '0.75rem',
+              full: '9999px',
+            },
+            spacing: {
+              unit: '8px',
+              'margin-mobile': '16px',
+              'card-gap': '20px',
+              gutter: '24px',
+              'container-padding': '32px',
+              xxl: '48px',
+              lg: '24px',
+              xxs: '4px',
+              sm: '12px',
+              md: '16px',
+              xl: '32px',
+              xs: '8px',
+            },
+            fontFamily: {
+              'headline-lg': ['Poppins'],
+              'label-bold': ['Poppins'],
+              'body-md': ['Poppins'],
+              'display-lg': ['Poppins'],
+              'headline-md': ['Poppins'],
+              'headline-lg-mobile': ['Poppins'],
+              'body-lg': ['Poppins'],
+              'label-sm': ['Poppins'],
+              'label-md': ['Poppins'],
+            },
+            fontSize: {
+              'headline-lg': [
+                '32px',
+                { lineHeight: '40px', letterSpacing: '-0.01em', fontWeight: '700' },
+              ],
+              'label-bold': ['14px', { lineHeight: '20px', fontWeight: '600' }],
+              'body-md': ['16px', { lineHeight: '24px', fontWeight: '400' }],
+              'display-lg': [
+                '48px',
+                { lineHeight: '56px', letterSpacing: '-0.02em', fontWeight: '700' },
+              ],
+              'headline-md': ['24px', { lineHeight: '32px', fontWeight: '600' }],
+              'headline-lg-mobile': ['24px', { lineHeight: '32px', fontWeight: '700' }],
+              'body-lg': ['18px', { lineHeight: '28px', fontWeight: '400' }],
+              'label-sm': ['12px', { lineHeight: '16px', fontWeight: '500' }],
+              'label-md': ['14px', { lineHeight: '20px', fontWeight: '500' }],
+            },
+          },
+        },
+      }
+    </script>
+    <style>
+      body {
+        background-color: #f7f9fb;
+        color: #191c1e;
+        font-family: 'Poppins', sans-serif;
+      }
+      .material-symbols-outlined {
+        font-variation-settings:
+          'FILL' 0,
+          'wght' 400,
+          'GRAD' 0,
+          'opsz' 24;
+      }
+      .energized-card {
+        background: #ffffff;
+        border-radius: 1.5rem;
+        box-shadow: 0 10px 30px -10px rgba(0, 64, 223, 0.1);
+        border: 1px solid #eceef0;
+        transition: all 0.3s ease;
+      }
+      .energized-card:hover {
+        box-shadow: 0 20px 40px -15px rgba(123, 36, 220, 0.15);
+        transform: translateY(-4px);
+      }
+      .vibrant-gradient {
+        background: linear-gradient(135deg, #0040df 0%, #7b24dc 100%);
+      }
+      ::-webkit-scrollbar {
+        width: 6px;
+      }
+      ::-webkit-scrollbar-track {
+        background: #f2f4f6;
+      }
+      ::-webkit-scrollbar-thumb {
+        background: #c4c5d9;
+        border-radius: 10px;
+      }
+      ::-webkit-scrollbar-thumb:hover {
+        background: #0040df;
+      }
+    </style>
   </head>
-  <body>
+  <body class="selection:bg-primary-fixed selection:text-on-primary-fixed">
     <div id="app"></div>
     <script type="module" src="/src/main.js"></script>
   </body>

@@ -29,34 +29,69 @@ const flipCard = () => {
 </script>
 
 <template>
-  <section class="flashcards-page">
-    <header class="page-header">
-      <div>
-        <p class="eyebrow">Flashcard</p>
-        <h1>Belajar Cepat dengan Flashcard</h1>
-        <p>Beralih antara pertanyaan dan jawaban untuk mengingat konsep penting secara efisien.</p>
-      </div>
-    </header>
+  <!-- Page Header -->
+  <div class="flex justify-between items-end mb-xl">
+    <div>
+      <h2 class="font-headline-lg text-headline-lg text-on-surface">Flashcard Mastery</h2>
+      <p class="font-body-lg text-body-lg text-on-surface-variant">
+        Master key concepts through interactive flashcard learning with instant feedback.
+      </p>
+    </div>
+    <div class="text-on-surface-variant font-label-md">
+      {{ currentIndex + 1 }} of {{ cards.length }}
+    </div>
+  </div>
 
-    <div class="flashcard-shell">
-      <div class="card-meta">Flashcard {{ currentIndex + 1 }} / {{ cards.length }}</div>
-      <div class="flashcard" :class="{ flipped }" @click="flipCard">
-        <div class="card-face card-front">
-          <p>{{ currentCard.front }}</p>
-        </div>
-        <div class="card-face card-back">
-          <p>{{ currentCard.back }}</p>
+  <!-- Flashcard Container -->
+  <div class="flex flex-col items-center">
+    <div class="flashcard-container mb-lg" :class="{ flipped }" @click="flipCard">
+      <div
+        class="flashcard-front energized-card p-xl flex items-center justify-center min-h-80 cursor-pointer hover:scale-[1.02] transition-transform"
+      >
+        <div class="text-center">
+          <span class="material-symbols-outlined text-4xl text-primary mb-md">help_center</span>
+          <h3 class="font-headline-lg text-headline-lg text-on-surface mb-sm">Question</h3>
+          <p class="font-body-lg text-body-lg text-on-surface-variant">{{ currentCard.front }}</p>
         </div>
       </div>
-      <div class="card-controls">
-        <button class="button secondary" @click="prevCard">Sebelumnya</button>
-        <button class="button primary" @click="flipCard">
-          {{ flipped ? 'Balik Lagi' : 'Lihat Jawaban' }}
-        </button>
-        <button class="button secondary" @click="nextCard">Selanjutnya</button>
+      <div
+        class="flashcard-back energized-card p-xl flex items-center justify-center min-h-80 cursor-pointer hover:scale-[1.02] transition-transform"
+      >
+        <div class="text-center">
+          <span class="material-symbols-outlined text-4xl text-secondary mb-md">lightbulb</span>
+          <h3 class="font-headline-lg text-headline-lg text-on-surface mb-sm">Answer</h3>
+          <p class="font-body-lg text-body-lg text-on-surface-variant">{{ currentCard.back }}</p>
+        </div>
       </div>
     </div>
-  </section>
+
+    <!-- Navigation Controls -->
+    <div class="flex gap-md">
+      <button
+        class="energized-card p-md hover:scale-105 transition-transform"
+        @click="prevCard"
+        :disabled="cards.length <= 1"
+      >
+        <span class="material-symbols-outlined text-primary">chevron_left</span>
+      </button>
+      <button
+        class="vibrant-gradient text-white px-xl py-md rounded-xl font-label-bold shadow-lg shadow-primary/20 hover:scale-[1.02] active:scale-95 transition-transform"
+        @click="flipCard"
+      >
+        <span class="material-symbols-outlined mr-sm">{{
+          flipped ? 'visibility_off' : 'visibility'
+        }}</span>
+        {{ flipped ? 'Hide Answer' : 'Show Answer' }}
+      </button>
+      <button
+        class="energized-card p-md hover:scale-105 transition-transform"
+        @click="nextCard"
+        :disabled="cards.length <= 1"
+      >
+        <span class="material-symbols-outlined text-primary">chevron_right</span>
+      </button>
+    </div>
+  </div>
 </template>
 
 <style scoped>

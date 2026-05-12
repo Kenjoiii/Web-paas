@@ -1,0 +1,368 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "surface": "#f7f9fb",
+                    "outline-variant": "#c4c5d9",
+                    "on-background": "#191c1e",
+                    "tertiary": "#00623d",
+                    "surface-tint": "#104af0",
+                    "secondary": "#7b24dc",
+                    "secondary-container": "#9547f7",
+                    "primary": "#0040df",
+                    "on-tertiary-fixed-variant": "#005232",
+                    "background": "#f7f9fb",
+                    "on-tertiary-fixed": "#002111",
+                    "on-primary-fixed": "#001355",
+                    "surface-container-highest": "#e0e3e5",
+                    "on-surface": "#191c1e",
+                    "primary-fixed-dim": "#b8c3ff",
+                    "surface-dim": "#d8dadc",
+                    "on-error-container": "#93000a",
+                    "on-primary-container": "#efefff",
+                    "primary-fixed": "#dde1ff",
+                    "tertiary-container": "#007d4f",
+                    "on-surface-variant": "#434656",
+                    "primary-container": "#2d5bff",
+                    "error-container": "#ffdad6",
+                    "outline": "#747688",
+                    "surface-container": "#eceef0",
+                    "surface-bright": "#f7f9fb",
+                    "on-error": "#ffffff",
+                    "inverse-surface": "#2d3133",
+                    "tertiary-fixed": "#50ffaf",
+                    "on-secondary-container": "#fffbff",
+                    "on-tertiary": "#ffffff",
+                    "secondary-fixed-dim": "#d8b9ff",
+                    "surface-container-low": "#f2f4f6",
+                    "inverse-on-surface": "#eff1f3",
+                    "tertiary-fixed-dim": "#00e293",
+                    "on-secondary": "#ffffff",
+                    "on-tertiary-container": "#bcffd5",
+                    "error": "#ba1a1a",
+                    "on-primary-fixed-variant": "#0035bd",
+                    "on-secondary-fixed-variant": "#6200bc",
+                    "inverse-primary": "#b8c3ff",
+                    "on-secondary-fixed": "#290055",
+                    "on-primary": "#ffffff",
+                    "surface-container-high": "#e6e8ea",
+                    "surface-container-lowest": "#ffffff",
+                    "surface-variant": "#e0e3e5",
+                    "secondary-fixed": "#eddcff"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "unit": "8px",
+                    "margin-mobile": "16px",
+                    "card-gap": "20px",
+                    "gutter": "24px",
+                    "container-padding": "32px",
+                    "xxs": "4px",
+                    "xs": "8px",
+                    "sm": "12px",
+                    "md": "16px",
+                    "lg": "24px",
+                    "xl": "32px",
+                    "margin-desktop": "40px"
+            },
+            "fontFamily": {
+                    "headline-lg": ["Poppins"],
+                    "label-bold": ["Poppins"],
+                    "body-md": ["Poppins"],
+                    "display-lg": ["Poppins"],
+                    "headline-md": ["Poppins"],
+                    "headline-lg-mobile": ["Poppins"],
+                    "body-lg": ["Poppins"],
+                    "label-sm": ["Poppins"],
+                    "label-md": ["Poppins"]
+            },
+            "fontSize": {
+                    "headline-lg": ["32px", {"lineHeight": "40px", "letterSpacing": "-0.01em", "fontWeight": "700"}],
+                    "label-bold": ["14px", {"lineHeight": "20px", "fontWeight": "600"}],
+                    "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                    "display-lg": ["48px", {"lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                    "headline-md": ["24px", {"lineHeight": "32px", "fontWeight": "600"}],
+                    "headline-lg-mobile": ["24px", {"lineHeight": "32px", "fontWeight": "700"}],
+                    "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "400"}],
+                    "label-sm": ["12px", {"lineHeight": "16px", "fontWeight": "500"}],
+                    "label-md": ["14px", {"lineHeight": "20px", "letterSpacing": "0.01em", "fontWeight": "500"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        body { font-family: 'Poppins', sans-serif; }
+        .no-scrollbar::-webkit-scrollbar { display: none; }
+        .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+    </style>
+</head>
+<body class="bg-background text-on-background selection:bg-primary-container selection:text-on-primary-container">
+<!-- Sidebar Shell -->
+<aside class="bg-surface-container-low w-[280px] h-screen fixed left-0 top-0 border-r border-outline-variant flex flex-col py-md z-40">
+<div class="px-lg mb-xl">
+<h1 class="font-headline-md text-headline-md font-bold text-primary">StudyPro</h1>
+<p class="text-on-surface-variant text-label-md">Academic Excellence</p>
+</div>
+<nav class="flex-1 space-y-xxs px-2 overflow-y-auto no-scrollbar">
+<a class="flex items-center gap-md px-md py-sm text-on-surface-variant hover:text-primary mx-2 hover:bg-surface-container-high transition-colors duration-200 active:scale-95" href="#">
+<span class="material-symbols-outlined">dashboard</span>
+<span class="font-body-md text-body-md">Dashboard</span>
+</a>
+<a class="flex items-center gap-md px-md py-sm bg-primary-container text-on-primary-container rounded-lg mx-2 active:scale-95 transition-transform" href="#">
+<span class="material-symbols-outlined" data-weight="fill" style="font-variation-settings: 'FILL' 1;">description</span>
+<span class="font-body-md text-body-md">Notes</span>
+</a>
+<a class="flex items-center gap-md px-md py-sm text-on-surface-variant hover:text-primary mx-2 hover:bg-surface-container-high transition-colors duration-200 active:scale-95" href="#">
+<span class="material-symbols-outlined">checklist</span>
+<span class="font-body-md text-body-md">Tasks</span>
+</a>
+<a class="flex items-center gap-md px-md py-sm text-on-surface-variant hover:text-primary mx-2 hover:bg-surface-container-high transition-colors duration-200 active:scale-95" href="#">
+<span class="material-symbols-outlined">quiz</span>
+<span class="font-body-md text-body-md">Flashcards</span>
+</a>
+<a class="flex items-center gap-md px-md py-sm text-on-surface-variant hover:text-primary mx-2 hover:bg-surface-container-high transition-colors duration-200 active:scale-95" href="#">
+<span class="material-symbols-outlined">calendar_month</span>
+<span class="font-body-md text-body-md">Calendar</span>
+</a>
+<a class="flex items-center gap-md px-md py-sm text-on-surface-variant hover:text-primary mx-2 hover:bg-surface-container-high transition-colors duration-200 active:scale-95" href="#">
+<span class="material-symbols-outlined">payments</span>
+<span class="font-body-md text-body-md">Wishlist</span>
+</a>
+</nav>
+<div class="px-md mt-auto pt-md border-t border-outline-variant/30">
+<button class="w-full bg-primary text-on-primary py-sm rounded-xl font-label-bold flex items-center justify-center gap-xs hover:opacity-90 active:scale-95 transition-all mb-lg shadow-lg shadow-primary/20">
+<span class="material-symbols-outlined">add</span>
+                Quick Note
+            </button>
+<a class="flex items-center gap-md px-md py-sm text-on-surface-variant hover:text-on-surface mx-2 hover:bg-surface-container-high transition-colors duration-200" href="#">
+<span class="material-symbols-outlined">settings</span>
+<span class="font-body-md text-body-md">Settings</span>
+</a>
+<a class="flex items-center gap-md px-md py-sm text-on-surface-variant hover:text-on-surface mx-2 hover:bg-surface-container-high transition-colors duration-200" href="#">
+<span class="material-symbols-outlined">logout</span>
+<span class="font-body-md text-body-md">Logout</span>
+</a>
+</div>
+</aside>
+<!-- Top Navigation -->
+<header class="bg-background/80 backdrop-blur-md h-16 ml-[280px] px-gutter fixed top-0 left-0 right-0 z-30 flex justify-between items-center border-b border-outline-variant/30">
+<div class="flex items-center gap-lg w-1/2">
+<div class="relative w-full max-w-md">
+<span class="material-symbols-outlined absolute left-md top-1/2 -translate-y-1/2 text-on-surface-variant">search</span>
+<input class="w-full bg-surface-container border border-outline-variant rounded-full py-xxs pl-xl pr-md text-label-md focus:outline-none focus:ring-2 focus:ring-primary/30" placeholder="Search notes and files..." type="text"/>
+</div>
+</div>
+<div class="flex items-center gap-md">
+<button class="p-xs text-on-surface-variant hover:text-primary transition-colors cursor-pointer">
+<span class="material-symbols-outlined">notifications</span>
+</button>
+<button class="p-xs text-on-surface-variant hover:text-primary transition-colors cursor-pointer">
+<span class="material-symbols-outlined">help</span>
+</button>
+<div class="h-8 w-8 rounded-full overflow-hidden border-2 border-primary/20">
+<img alt="Student Profile Avatar" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuC4mrzWbxh5EvjWe61d6USRojXsaKy6oBcRmSLLRYlU1gbn4gXW9S9ApuVM1lHRfSvNU6njcQRDAmwvFtsnl_h76hktXUMrfMO5sdbGYnTbN8HbjjKMftcnD1XT_WNoKZE3c4vmz00agDVCfqUe0ay8or4PyjSXCDKyQkHj-xIvbxKyTv3wwL5uVc0a3NbtBfyq0KRB3OfIT7-n_Adi0Tjy8KKMMUS_CPtxxZC1FAHrKMqwyYj1GFDSUiAlTHfmMGESaMkfWtW_KFSh"/>
+</div>
+</div>
+</header>
+<!-- Main Content Area: Split Pane -->
+<main class="ml-[280px] pt-16 h-screen flex overflow-hidden">
+<!-- File Explorer Pane -->
+<section class="w-80 flex flex-col border-r border-outline-variant bg-surface-container-lowest">
+<div class="p-md border-b border-outline-variant flex justify-between items-center">
+<span class="text-label-sm uppercase tracking-wider font-bold text-on-surface-variant">Collections</span>
+<button class="text-primary hover:text-primary-container">
+<span class="material-symbols-outlined text-[20px]">create_new_folder</span>
+</button>
+</div>
+<div class="flex-1 overflow-y-auto p-sm space-y-xxs no-scrollbar">
+<div class="group">
+<button class="w-full flex items-center gap-xs p-xxs text-on-surface-variant hover:text-on-surface transition-colors">
+<span class="material-symbols-outlined text-md">keyboard_arrow_down</span>
+<span class="material-symbols-outlined text-md text-primary">folder_open</span>
+<span class="text-label-md font-semibold">CS 101: Data Structures</span>
+</button>
+<div class="ml-xl mt-xxs space-y-xxs">
+<a class="block p-xs rounded-lg bg-surface-container border border-primary/20 text-on-surface shadow-sm" href="#">
+<div class="flex items-center gap-xs mb-xxs">
+<span class="material-symbols-outlined text-sm text-primary">description</span>
+<span class="text-label-md font-medium truncate">Binary Search Trees</span>
+</div>
+<span class="text-[10px] text-on-surface-variant">Last edited 2h ago</span>
+</a>
+<a class="block p-xs rounded-lg hover:bg-surface-container border border-transparent hover:border-outline-variant/30 text-on-surface-variant hover:text-on-surface transition-all" href="#">
+<div class="flex items-center gap-xs mb-xxs">
+<span class="material-symbols-outlined text-sm">description</span>
+<span class="text-label-md truncate">Heap Sort Analysis</span>
+</div>
+<span class="text-[10px] text-on-surface-variant">Sep 12, 2023</span>
+</a>
+</div>
+</div>
+<div class="group pt-sm">
+<button class="w-full flex items-center gap-xs p-xxs text-on-surface-variant hover:text-on-surface transition-colors">
+<span class="material-symbols-outlined text-md">keyboard_arrow_right</span>
+<span class="material-symbols-outlined text-md text-secondary">folder</span>
+<span class="text-label-md font-semibold">Macroeconomics</span>
+</button>
+</div>
+<div class="group pt-sm">
+<button class="w-full flex items-center gap-xs p-xxs text-on-surface-variant hover:text-on-surface transition-colors">
+<span class="material-symbols-outlined text-md">keyboard_arrow_right</span>
+<span class="material-symbols-outlined text-md text-error">folder</span>
+<span class="text-label-md font-semibold">Research Thesis</span>
+</button>
+</div>
+<div class="mt-lg px-xs">
+<span class="text-[10px] uppercase tracking-widest text-on-surface-variant font-bold block mb-sm">Tags</span>
+<div class="flex flex-wrap gap-xxs">
+<span class="px-xs py-1 rounded-full bg-primary-container text-primary text-[10px] border border-primary/20">#exam-prep</span>
+<span class="px-xs py-1 rounded-full bg-secondary/10 text-secondary text-[10px] border border-secondary/20">#coding</span>
+<span class="px-xs py-1 rounded-full bg-surface-container-highest text-on-surface-variant text-[10px] border border-outline-variant">#final-paper</span>
+</div>
+</div>
+</div>
+</section>
+<!-- Editor Pane -->
+<section class="flex-1 flex flex-col bg-background">
+<!-- Editor Toolbar -->
+<div class="h-14 border-b border-outline-variant flex items-center justify-between px-lg">
+<div class="flex items-center gap-sm">
+<div class="flex items-center gap-xxs bg-surface-container-low p-1 rounded-lg border border-outline-variant">
+<button class="p-xs hover:bg-surface-container-high rounded text-on-surface-variant hover:text-primary" title="Bold">
+<span class="material-symbols-outlined text-md">format_bold</span>
+</button>
+<button class="p-xs hover:bg-surface-container-high rounded text-on-surface-variant hover:text-primary" title="Italic">
+<span class="material-symbols-outlined text-md">format_italic</span>
+</button>
+<button class="p-xs hover:bg-surface-container-high rounded text-on-surface-variant hover:text-primary" title="Strikethrough">
+<span class="material-symbols-outlined text-md">format_strikethrough</span>
+</button>
+<div class="w-[1px] h-4 bg-outline-variant mx-1"></div>
+<button class="p-xs hover:bg-surface-container-high rounded text-on-surface-variant hover:text-primary" title="Code">
+<span class="material-symbols-outlined text-md">code</span>
+</button>
+<button class="p-xs hover:bg-surface-container-high rounded text-on-surface-variant hover:text-primary" title="Link">
+<span class="material-symbols-outlined text-md">link</span>
+</button>
+<button class="p-xs hover:bg-surface-container-high rounded text-on-surface-variant hover:text-primary" title="Image">
+<span class="material-symbols-outlined text-md">image</span>
+</button>
+</div>
+<div class="hidden lg:flex items-center gap-xxs bg-surface-container-low p-1 rounded-lg border border-outline-variant">
+<button class="p-xs hover:bg-surface-container-high rounded text-on-surface-variant hover:text-primary">
+<span class="material-symbols-outlined text-md">format_list_bulleted</span>
+</button>
+<button class="p-xs hover:bg-surface-container-high rounded text-on-surface-variant hover:text-primary">
+<span class="material-symbols-outlined text-md">format_list_numbered</span>
+</button>
+</div>
+</div>
+<div class="flex items-center gap-md">
+<div class="flex items-center gap-xs text-tertiary text-[12px] font-medium">
+<span class="material-symbols-outlined text-sm">cloud_done</span>
+                        Saved
+                    </div>
+<button class="bg-primary text-on-primary px-lg py-xxs rounded-lg font-label-bold hover:bg-primary-container hover:text-on-primary-container transition-all flex items-center gap-xs shadow-md shadow-primary/10">
+<span class="material-symbols-outlined text-md">save</span>
+                        Save
+                    </button>
+<button class="text-on-surface-variant hover:text-primary transition-colors">
+<span class="material-symbols-outlined">more_vert</span>
+</button>
+</div>
+</div>
+<!-- Content Area -->
+<div class="flex-1 overflow-y-auto px-margin-desktop py-lg no-scrollbar max-w-4xl mx-auto w-full">
+<input class="w-full bg-transparent border-none focus:ring-0 text-headline-lg font-bold text-on-surface mb-md placeholder:text-outline" placeholder="Enter title..." type="text" value="Binary Search Trees"/>
+<div class="flex gap-sm mb-xl">
+<span class="text-label-sm text-on-surface-variant bg-surface-container-high px-sm py-xxs rounded-lg flex items-center gap-xs">
+<span class="material-symbols-outlined text-xs">calendar_today</span>
+                        Sept 24, 2023
+                    </span>
+<span class="text-label-sm text-on-surface-variant bg-surface-container-high px-sm py-xxs rounded-lg flex items-center gap-xs">
+<span class="material-symbols-outlined text-xs">timer</span>
+                        8 min read
+                    </span>
+<span class="text-label-sm text-primary bg-primary-container px-sm py-xxs rounded-lg font-medium border border-primary/20">#CS101</span>
+</div>
+<article class="max-w-none space-y-md font-body-md text-body-md text-on-surface-variant leading-relaxed">
+<p>Binary Search Trees (BST) are a fundamental data structure in computer science, used for efficient searching, insertion, and deletion operations.</p>
+<h2 class="text-headline-md text-on-surface font-bold pt-sm">Key Properties</h2>
+<ul class="list-disc pl-lg space-y-xs marker:text-primary">
+<li>The left subtree of a node contains only nodes with keys less than the node's key.</li>
+<li>The right subtree of a node contains only nodes with keys greater than the node's key.</li>
+<li>The left and right subtree each must also be a binary search tree.</li>
+</ul>
+<div class="relative group my-lg overflow-hidden rounded-xl border border-outline-variant shadow-lg shadow-black/5">
+<img class="w-full h-64 object-cover" data-alt="Technical diagram of a BST" src="https://lh3.googleusercontent.com/aida-public/AB6AXuD0j04JKIucc_KELDYG2IU5RoiX4FZewdp1RBNut3Nh8nPJyXYBb5m_KePfV_EktjUjZAN8ZUAOiI5OsbCyj33C5-REt2TR-6JT9wREaVgZynFIKoi1R-Ai3pPgdNJJRRnpWSI5rMZ5WJnQmbGcpm3RpHqbRzYYwFTIkZzkfvGCNPnDMFdRCV-TtqjYcjRhgO_Tho4DqOLsWu1veR2kPW4WDHCoysqjhLPl13XLTJa28RoVK9194sqnrl3ZKfKCzgMXBHRacmQfZuG-"/>
+<div class="absolute inset-0 bg-gradient-to-t from-primary/80 to-transparent flex items-end p-md opacity-0 group-hover:opacity-100 transition-opacity">
+<span class="text-label-sm text-white font-bold">BST Structure Visualization</span>
+</div>
+</div>
+<h2 class="text-headline-md text-on-surface font-bold pt-sm">Implementation (C++)</h2>
+<pre class="bg-surface-container-high p-lg rounded-xl border border-outline-variant font-mono text-sm text-on-surface overflow-x-auto"><span class="text-primary font-bold">struct</span> Node {
+    <span class="text-secondary font-bold">int</span> data;
+    Node *left, *right;
+    Node(<span class="text-secondary font-bold">int</span> val) : data(val), left(<span class="text-tertiary">nullptr</span>), right(<span class="text-tertiary">nullptr</span>) {}
+};
+
+Node* insert(Node* root, <span class="text-secondary font-bold">int</span> key) {
+    <span class="text-primary font-bold">if</span> (root == <span class="text-tertiary">nullptr</span>) <span class="text-primary font-bold">return</span> <span class="text-primary font-bold">new</span> Node(key);
+    <span class="text-primary font-bold">if</span> (key &lt; root-&gt;data)
+        root-&gt;left = insert(root-&gt;left, key);
+    <span class="text-primary font-bold">else</span>
+        root-&gt;right = insert(root-&gt;right, key);
+    <span class="text-primary font-bold">return</span> root;
+}</pre>
+<p>Remember to consider the case of <strong>balanced</strong> vs <strong>unbalanced</strong> trees. In the worst case (a skewed tree), the time complexity for search operations becomes O(n) instead of O(log n).</p>
+<div class="p-lg bg-secondary-fixed text-on-secondary-fixed-variant rounded-xl border-l-4 border-secondary shadow-sm">
+<p class="italic text-on-surface">"Efficiency is doing things right; effectiveness is doing the right things." - Peter Drucker</p>
+</div>
+</article>
+</div>
+</section>
+<!-- Right Side Panel -->
+<aside class="w-64 border-l border-outline-variant bg-surface-container-lowest hidden xl:flex flex-col">
+<div class="p-md border-b border-outline-variant">
+<span class="text-label-sm uppercase tracking-wider font-bold text-on-surface-variant">Table of Contents</span>
+</div>
+<div class="p-md space-y-sm">
+<a class="block text-label-md text-primary font-bold border-l-2 border-primary pl-sm py-1" href="#">Key Properties</a>
+<a class="block text-label-md text-on-surface-variant hover:text-primary border-l-2 border-transparent pl-sm py-1 transition-colors" href="#">Visualization</a>
+<a class="block text-label-md text-on-surface-variant hover:text-primary border-l-2 border-transparent pl-sm py-1 transition-colors" href="#">Implementation (C++)</a>
+<a class="block text-label-md text-on-surface-variant hover:text-primary border-l-2 border-transparent pl-sm py-1 transition-colors" href="#">Time Complexity</a>
+</div>
+<div class="mt-auto p-md border-t border-outline-variant">
+<div class="bg-primary-container rounded-xl p-md border border-primary/20 shadow-sm">
+<span class="text-label-sm text-primary font-bold block mb-xs">Next Study Session</span>
+<div class="flex items-center gap-sm">
+<span class="material-symbols-outlined text-secondary animate-pulse">alarm</span>
+<div>
+<p class="text-label-md text-on-surface font-bold">AVL Trees</p>
+<p class="text-[10px] text-on-surface-variant">Tomorrow, 10:00 AM</p>
+</div>
+</div>
+</div>
+</div>
+</aside>
+</main>
+</body></html>

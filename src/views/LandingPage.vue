@@ -144,6 +144,7 @@ const submitRegister = () => {
 }
 .primary {
   background: linear-gradient(135deg, #5f3dff, #6727f5);
+  margin-top: 20px;
   color: white;
 }
 .secondary {

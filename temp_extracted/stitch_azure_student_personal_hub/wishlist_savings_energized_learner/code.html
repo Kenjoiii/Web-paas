@@ -1,0 +1,397 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "surface": "#f7f9fb",
+                    "outline-variant": "#c4c5d9",
+                    "on-background": "#191c1e",
+                    "tertiary": "#00623d",
+                    "surface-tint": "#104af0",
+                    "secondary": "#7b24dc",
+                    "secondary-container": "#9547f7",
+                    "primary": "#0040df",
+                    "on-tertiary-fixed-variant": "#005232",
+                    "background": "#f7f9fb",
+                    "on-tertiary-fixed": "#002111",
+                    "on-primary-fixed": "#001355",
+                    "surface-container-highest": "#e0e3e5",
+                    "on-surface": "#191c1e",
+                    "primary-fixed-dim": "#b8c3ff",
+                    "surface-dim": "#d8dadc",
+                    "on-error-container": "#93000a",
+                    "on-primary-container": "#efefff",
+                    "primary-fixed": "#dde1ff",
+                    "tertiary-container": "#007d4f",
+                    "on-surface-variant": "#434656",
+                    "primary-container": "#2d5bff",
+                    "error-container": "#ffdad6",
+                    "outline": "#747688",
+                    "surface-container": "#eceef0",
+                    "surface-bright": "#f7f9fb",
+                    "on-error": "#ffffff",
+                    "inverse-surface": "#2d3133",
+                    "tertiary-fixed": "#50ffaf",
+                    "on-secondary-container": "#fffbff",
+                    "on-tertiary": "#ffffff",
+                    "secondary-fixed-dim": "#d8b9ff",
+                    "surface-container-low": "#f2f4f6",
+                    "inverse-on-surface": "#eff1f3",
+                    "tertiary-fixed-dim": "#00e293",
+                    "on-secondary": "#ffffff",
+                    "on-tertiary-container": "#bcffd5",
+                    "error": "#ba1a1a",
+                    "on-primary-fixed-variant": "#0035bd",
+                    "on-secondary-fixed-variant": "#6200bc",
+                    "inverse-primary": "#b8c3ff",
+                    "on-secondary-fixed": "#290055",
+                    "on-primary": "#ffffff",
+                    "surface-container-high": "#e6e8ea",
+                    "surface-container-lowest": "#ffffff",
+                    "surface-variant": "#e0e3e5",
+                    "secondary-fixed": "#eddcff"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "unit": "8px",
+                    "margin-mobile": "16px",
+                    "card-gap": "20px",
+                    "gutter": "24px",
+                    "container-padding": "32px",
+                    "xxl": "48px",
+                    "lg": "24px",
+                    "xxs": "4px",
+                    "sm": "12px",
+                    "md": "16px",
+                    "xl": "32px",
+                    "xs": "8px",
+                    "base": "4px"
+            },
+            "fontFamily": {
+                    "headline-lg": ["Poppins"],
+                    "label-bold": ["Poppins"],
+                    "body-md": ["Poppins"],
+                    "display-lg": ["Poppins"],
+                    "headline-md": ["Poppins"],
+                    "headline-lg-mobile": ["Poppins"],
+                    "body-lg": ["Poppins"],
+                    "label-sm": ["Poppins"],
+                    "label-md": ["Poppins"]
+            },
+            "fontSize": {
+                    "headline-lg": ["32px", {"lineHeight": "40px", "letterSpacing": "-0.01em", "fontWeight": "700"}],
+                    "label-bold": ["14px", {"lineHeight": "20px", "fontWeight": "600"}],
+                    "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                    "display-lg": ["48px", {"lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                    "headline-md": ["24px", {"lineHeight": "32px", "fontWeight": "600"}],
+                    "headline-lg-mobile": ["24px", {"lineHeight": "32px", "fontWeight": "700"}],
+                    "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "400"}],
+                    "label-sm": ["12px", {"lineHeight": "16px", "fontWeight": "500"}],
+                    "label-md": ["14px", {"lineHeight": "20px", "letterSpacing": "0.01em", "fontWeight": "500"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+            display: inline-block;
+            vertical-align: middle;
+        }
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-track { background: #f7f9fb; }
+        ::-webkit-scrollbar-thumb { background: #e0e3e5; border-radius: 10px; }
+        ::-webkit-scrollbar-thumb:hover { background: #c4c5d9; }
+    </style>
+</head>
+<body class="bg-background text-on-background font-body-md overflow-x-hidden">
+<!-- SideNavBar -->
+<aside class="w-[280px] h-screen fixed left-0 top-0 bg-surface-container-lowest border-r border-outline-variant flex flex-col py-md z-50">
+<div class="px-lg mb-xl">
+<h1 class="font-headline-md text-headline-md font-bold text-primary">StudyPro</h1>
+<p class="text-label-sm text-on-surface-variant">Academic Excellence</p>
+</div>
+<nav class="flex-1 space-y-xs">
+<a class="flex items-center gap-md px-lg py-sm text-on-surface-variant hover:text-primary mx-2 hover:bg-primary/5 transition-colors duration-200 active:scale-95 transition-transform" href="#">
+<span class="material-symbols-outlined">dashboard</span>
+<span class="font-body-md">Dashboard</span>
+</a>
+<a class="flex items-center gap-md px-lg py-sm text-on-surface-variant hover:text-primary mx-2 hover:bg-primary/5 transition-colors duration-200 active:scale-95 transition-transform" href="#">
+<span class="material-symbols-outlined">description</span>
+<span class="font-body-md">Notes</span>
+</a>
+<a class="flex items-center gap-md px-lg py-sm text-on-surface-variant hover:text-primary mx-2 hover:bg-primary/5 transition-colors duration-200 active:scale-95 transition-transform" href="#">
+<span class="material-symbols-outlined">checklist</span>
+<span class="font-body-md">Tasks</span>
+</a>
+<a class="flex items-center gap-md px-lg py-sm text-on-surface-variant hover:text-primary mx-2 hover:bg-primary/5 transition-colors duration-200 active:scale-95 transition-transform" href="#">
+<span class="material-symbols-outlined">quiz</span>
+<span class="font-body-md">Flashcards</span>
+</a>
+<a class="flex items-center gap-md px-lg py-sm text-on-surface-variant hover:text-primary mx-2 hover:bg-primary/5 transition-colors duration-200 active:scale-95 transition-transform" href="#">
+<span class="material-symbols-outlined">calendar_month</span>
+<span class="font-body-md">Calendar</span>
+</a>
+<a class="flex items-center gap-md px-lg py-sm bg-primary text-on-primary rounded-lg mx-2 active:scale-95 transition-transform" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">payments</span>
+<span class="font-body-md">Wishlist</span>
+</a>
+</nav>
+<div class="px-lg mb-md">
+<button class="w-full py-sm bg-tertiary text-on-tertiary rounded-lg font-label-md flex items-center justify-center gap-xs hover:brightness-110 transition-all shadow-sm">
+<span class="material-symbols-outlined">add</span>
+                Quick Note
+            </button>
+</div>
+<div class="border-t border-outline-variant pt-md space-y-xs">
+<a class="flex items-center gap-md px-lg py-sm text-on-surface-variant hover:text-on-surface mx-2 hover:bg-surface-container transition-colors duration-200" href="#">
+<span class="material-symbols-outlined">settings</span>
+<span class="font-body-md">Settings</span>
+</a>
+<a class="flex items-center gap-md px-lg py-sm text-on-surface-variant hover:text-on-surface mx-2 hover:bg-surface-container transition-colors duration-200" href="#">
+<span class="material-symbols-outlined">logout</span>
+<span class="font-body-md">Logout</span>
+</a>
+</div>
+</aside>
+<!-- Main Content Area -->
+<main class="ml-[280px] min-h-screen bg-surface">
+<!-- TopNavBar -->
+<header class="sticky top-0 z-40 bg-surface/80 backdrop-blur-md flex justify-between items-center h-16 px-gutter border-b border-outline-variant/30">
+<div class="flex items-center gap-md flex-1">
+<div class="relative w-full max-w-md">
+<span class="material-symbols-outlined absolute left-sm top-1/2 -translate-y-1/2 text-on-surface-variant">search</span>
+<input class="w-full bg-surface-container-lowest border border-outline-variant rounded-full py-xs pl-xl pr-md text-label-md focus:border-primary focus:ring-1 focus:ring-primary outline-none transition-all shadow-sm" placeholder="Search wishlist items..." type="text"/>
+</div>
+</div>
+<div class="flex items-center gap-lg">
+<div class="flex items-center gap-md text-on-surface-variant">
+<span class="material-symbols-outlined cursor-pointer hover:text-primary transition-colors">notifications</span>
+<span class="material-symbols-outlined cursor-pointer hover:text-primary transition-colors">help</span>
+</div>
+<div class="flex items-center gap-sm">
+<img alt="Student Profile Avatar" class="w-8 h-8 rounded-full border-2 border-primary/20" data-alt="Close-up portrait of a young male student with a focused expression, wearing a minimalist navy blue hoodie. The lighting is cinematic and cool-toned, reflecting a high-end academic digital environment. The background is a soft-focus library with midnight blue accents and subtle bokeh highlights." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCM3OL98dQi1L7CLJc5cI-St5UPDgph9QWhT4kdwLatxtsWVnbRg49m5UsysfLZHTIdp7jbP_fpBoXIEOR8HLTjXk68k_VZpJTLrd8jMTNMPeMyBB7KzqeNiQcU4musNZIgbgDHvIeCzOVMPx4dXCPYHQ3nFwWJGiF4MrZPpSaHJItfFIcgDz39Nmi5lpx0BQF4WVLPl0D3LH5MmBZOELeTVNu_2UwoE7UXLVKeB2cWeKAPe90KFZ10Q_Ylbwv05sJM1fUYzbm41u2_"/>
+</div>
+</div>
+</header>
+<!-- Dashboard Content -->
+<div class="p-gutter max-w-7xl mx-auto space-y-gutter">
+<!-- Page Header -->
+<div class="flex flex-col md:flex-row justify-between items-start md:items-center gap-md">
+<div>
+<h2 class="font-headline-lg text-headline-lg text-on-surface">Savings Tracker</h2>
+<p class="text-body-md text-on-surface-variant">Manage your academic investments and wishlist goals.</p>
+</div>
+<button class="bg-primary text-on-primary px-lg py-sm rounded-lg font-label-md flex items-center gap-xs active:scale-95 transition-transform shadow-md hover:brightness-110">
+<span class="material-symbols-outlined">add_circle</span>
+                    Add New Goal
+                </button>
+</div>
+<!-- Bento Grid Layout -->
+<div class="grid grid-cols-1 md:grid-cols-12 gap-gutter">
+<!-- Savings Goal Widget -->
+<div class="md:col-span-8 bg-surface-container-lowest border border-outline-variant rounded-xl p-lg flex flex-col justify-between shadow-sm">
+<div class="flex justify-between items-start mb-lg">
+<div>
+<h3 class="font-headline-md text-headline-md text-on-surface">Total Savings Balance</h3>
+<p class="text-label-md text-on-surface-variant">Combined progress across all wishlist items</p>
+</div>
+<span class="bg-tertiary/10 text-tertiary px-sm py-xs rounded-full text-label-sm font-bold border border-tertiary/20">78% to Target</span>
+</div>
+<div class="flex flex-col md:flex-row items-end gap-xl">
+<div class="flex-1 w-full">
+<div class="flex justify-between items-end mb-xs">
+<span class="text-display-lg font-display-lg text-primary">$2,450.00</span>
+<span class="text-label-md text-on-surface-variant pb-base font-medium">Goal: $3,140.00</span>
+</div>
+<div class="w-full h-3 bg-surface-container-high rounded-full overflow-hidden">
+<div class="h-full bg-gradient-to-r from-primary to-tertiary-fixed-dim w-[78%] transition-all duration-1000 ease-out"></div>
+</div>
+</div>
+<div class="flex gap-md w-full md:w-auto">
+<button class="flex-1 md:flex-none border border-outline-variant text-on-surface px-lg py-sm rounded-lg font-label-md hover:bg-surface-container transition-colors">History</button>
+<button class="flex-1 md:flex-none bg-primary text-on-primary px-lg py-sm rounded-lg font-label-md hover:brightness-110 transition-all shadow-sm">Deposit</button>
+</div>
+</div>
+</div>
+<!-- Quick Stats -->
+<div class="md:col-span-4 bg-surface-container-lowest border border-outline-variant rounded-xl p-lg shadow-sm">
+<h3 class="font-headline-md text-headline-md text-on-surface mb-md">Insights</h3>
+<div class="space-y-md">
+<div class="flex items-center justify-between p-sm rounded-lg bg-surface-container/50 border border-outline-variant/30">
+<div class="flex items-center gap-sm">
+<span class="material-symbols-outlined text-primary">trending_up</span>
+<span class="text-label-md text-on-surface-variant">Monthly Avg</span>
+</div>
+<span class="text-label-md font-bold text-tertiary">+$420.00</span>
+</div>
+<div class="flex items-center justify-between p-sm rounded-lg bg-surface-container/50 border border-outline-variant/30">
+<div class="flex items-center gap-sm">
+<span class="material-symbols-outlined text-primary">schedule</span>
+<span class="text-label-md text-on-surface-variant">Est. Finish</span>
+</div>
+<span class="text-label-md font-bold text-on-surface">2.4 Months</span>
+</div>
+<div class="flex items-center justify-between p-sm rounded-lg bg-surface-container/50 border border-outline-variant/30">
+<div class="flex items-center gap-sm">
+<span class="material-symbols-outlined text-tertiary">verified</span>
+<span class="text-label-md text-on-surface-variant">Completed</span>
+</div>
+<span class="text-label-md font-bold text-on-surface">12 Items</span>
+</div>
+</div>
+</div>
+<!-- Wishlist Items Grid -->
+<div class="md:col-span-12 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-gutter">
+<!-- Item 1 -->
+<div class="bg-surface-container-lowest border border-outline-variant rounded-xl overflow-hidden flex flex-col group hover:border-primary transition-all shadow-sm hover:shadow-md">
+<div class="relative aspect-video">
+<img class="w-full h-full object-cover" data-alt="A professional high-end mechanical keyboard" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDbddYk_kCsWp5elLf1U53GozmT8F0QyMVWAvZMD6o9eL1nKhCL-VYoyY_ELcYkscmzaGWeDLB5KPtrkPIKFWocz7HrjqRzBk6Zdw1LDt_WgQRHoE6i23iGA2z1cgK6qsNvAR5x0wXLl7_LncsCwQ6Cxirgx0TSpN7jVEUt_pKXwyHEwKbYi6HOVL-sVYRXB9pz-ZnOnJZIEoY4fCyihRm0UmXL8aqxBHH0AXIfAWy_ClqjVw3MZS2t-9tCt1aGziQaJezCigkNqNjq"/>
+<div class="absolute top-sm right-sm bg-primary/90 backdrop-blur-md px-sm py-xs rounded-full">
+<span class="text-label-sm font-bold text-on-primary">$180.00</span>
+</div>
+</div>
+<div class="p-md flex-1 flex flex-col">
+<div class="mb-lg">
+<h4 class="font-bold text-on-surface group-hover:text-primary transition-colors">Premium Mechanical Keyboard</h4>
+<p class="text-label-sm text-on-surface-variant">Ergonomic setup upgrade</p>
+</div>
+<div class="mt-auto space-y-xs">
+<div class="flex justify-between text-label-sm">
+<span class="text-tertiary font-bold">Saved: $144.00</span>
+<span class="text-on-surface-variant">80%</span>
+</div>
+<div class="w-full h-2 bg-surface-container-high rounded-full overflow-hidden">
+<div class="h-full bg-tertiary w-[80%]"></div>
+</div>
+</div>
+</div>
+</div>
+<!-- Item 2 -->
+<div class="bg-surface-container-lowest border border-outline-variant rounded-xl overflow-hidden flex flex-col group hover:border-primary transition-all shadow-sm hover:shadow-md">
+<div class="relative aspect-video">
+<img class="w-full h-full object-cover" data-alt="A sleek high-performance laptop" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAGtONcv7C5oCjjdkcUeakJCehacp2MmuvNXzBcygxoTodhqvX77vmXzpKiZXgdqsP2MMWZlG8zLoJokV8oDH3VMeK9DXIr5SW5LJpBGKkeOXfiICtdwlC1VsNDXdINQ9EHaq-rkKDkRV3Q6nKBAr6DOi4bc5gLBOZFlf_9Tx5rXshNftopQ2eqEnppQ97yd4ccy8dervkqEyUP9LcvLnDFIzPGaiRUkF8suhoR2_K-Ggebp9xCksbM0aLmZTBaI3HMIbXwMxJbNLlI"/>
+<div class="absolute top-sm right-sm bg-primary/90 backdrop-blur-md px-sm py-xs rounded-full">
+<span class="text-label-sm font-bold text-on-primary">$1,200.00</span>
+</div>
+</div>
+<div class="p-md flex-1 flex flex-col">
+<div class="mb-lg">
+<h4 class="font-bold text-on-surface group-hover:text-primary transition-colors">Pro 14" Workstation</h4>
+<p class="text-label-sm text-on-surface-variant">Main academic machine</p>
+</div>
+<div class="mt-auto space-y-xs">
+<div class="flex justify-between text-label-sm">
+<span class="text-tertiary font-bold">Saved: $900.00</span>
+<span class="text-on-surface-variant">75%</span>
+</div>
+<div class="w-full h-2 bg-surface-container-high rounded-full overflow-hidden">
+<div class="h-full bg-tertiary w-[75%]"></div>
+</div>
+</div>
+</div>
+</div>
+<!-- Item 3 -->
+<div class="bg-surface-container-lowest border border-outline-variant rounded-xl overflow-hidden flex flex-col group hover:border-primary transition-all shadow-sm hover:shadow-md">
+<div class="relative aspect-video">
+<img class="w-full h-full object-cover" data-alt="Premium noise-canceling headphones" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDmt997gXyTb6vVLAUDqQYGHIxT6DfEcUD6U2kN6zGmV2n_W9Bw7BcWKFfrTtxHnJSwDM_xbrvYTl5Qfhe-x0rJ2Vmg3swkUaJjCW5fsn-6hqchnp1zkC2feMERLAfaIxAJYOQfvqdKkrvLm19Og-Xo-QAPimrWyNpFHTdFJybQp3Ujvofy2TnIC0x5FUhtRwdTs0OTPyF7DbRTc9q7I9j-G2m954lZR8gk_V8h-xQMgWV-fJQWKNXxnVM_0QPXNZLAcGcy_P3_IoHL"/>
+<div class="absolute top-sm right-sm bg-tertiary backdrop-blur-md px-sm py-xs rounded-full">
+<span class="text-label-sm font-bold text-on-tertiary">$350.00</span>
+</div>
+</div>
+<div class="p-md flex-1 flex flex-col">
+<div class="mb-lg">
+<h4 class="font-bold text-on-surface group-hover:text-primary transition-colors">Noise Canceling Headphones</h4>
+<p class="text-label-sm text-on-surface-variant">Focus-session essential</p>
+</div>
+<div class="mt-auto space-y-xs">
+<div class="flex justify-between text-label-sm">
+<span class="text-tertiary font-bold">Saved: $350.00</span>
+<span class="text-on-surface-variant font-bold">100%</span>
+</div>
+<div class="w-full h-2 bg-surface-container-high rounded-full overflow-hidden">
+<div class="h-full bg-tertiary w-[100%]"></div>
+</div>
+</div>
+<button class="w-full mt-md bg-tertiary text-on-tertiary py-xs rounded-lg font-label-md active:scale-95 transition-transform hover:brightness-110 shadow-sm">Buy Now</button>
+</div>
+</div>
+<!-- Item 4 (Add New Placeholder) -->
+<div class="bg-surface-container border border-dashed border-outline-variant rounded-xl overflow-hidden flex flex-col items-center justify-center p-xl group hover:border-primary hover:bg-primary/5 transition-all cursor-pointer">
+<div class="w-16 h-16 rounded-full bg-surface-container-highest flex items-center justify-center mb-md group-hover:bg-primary transition-colors">
+<span class="material-symbols-outlined text-headline-lg text-on-surface-variant group-hover:text-on-primary">add</span>
+</div>
+<span class="font-label-md text-on-surface-variant group-hover:text-primary font-semibold">Add New Item</span>
+</div>
+</div>
+</div>
+<!-- Goal Breakdown Table -->
+<div class="bg-surface-container-lowest border border-outline-variant rounded-xl overflow-hidden shadow-sm">
+<div class="px-lg py-md bg-surface-container/30 flex justify-between items-center border-b border-outline-variant/30">
+<h3 class="font-headline-md text-headline-md text-on-surface">Savings History</h3>
+<div class="flex gap-xs">
+<span class="material-symbols-outlined text-on-surface-variant cursor-pointer hover:text-primary">filter_list</span>
+<span class="material-symbols-outlined text-on-surface-variant cursor-pointer hover:text-primary">download</span>
+</div>
+</div>
+<div class="overflow-x-auto">
+<table class="w-full text-left">
+<thead>
+<tr class="border-b border-outline-variant/30 text-label-sm text-on-surface-variant">
+<th class="px-lg py-md font-semibold uppercase tracking-wider">Date</th>
+<th class="px-lg py-md font-semibold uppercase tracking-wider">Source</th>
+<th class="px-lg py-md font-semibold uppercase tracking-wider">Target</th>
+<th class="px-lg py-md font-semibold uppercase tracking-wider text-right">Amount</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-outline-variant/20">
+<tr class="hover:bg-primary/5 transition-colors">
+<td class="px-lg py-sm text-body-md text-on-surface">Oct 24, 2023</td>
+<td class="px-lg py-sm text-body-md text-on-surface-variant">Monthly Allowance</td>
+<td class="px-lg py-sm">
+<span class="bg-surface-container-highest text-on-surface-variant px-xs py-xxs rounded text-label-sm font-medium">General Pool</span>
+</td>
+<td class="px-lg py-sm text-body-md text-tertiary font-bold text-right">+$200.00</td>
+</tr>
+<tr class="hover:bg-primary/5 transition-colors">
+<td class="px-lg py-sm text-body-md text-on-surface">Oct 18, 2023</td>
+<td class="px-lg py-sm text-body-md text-on-surface-variant">Tutoring Gig</td>
+<td class="px-lg py-sm">
+<span class="bg-primary/10 text-primary px-xs py-xxs rounded text-label-sm font-medium border border-primary/20">Laptop Pro</span>
+</td>
+<td class="px-lg py-sm text-body-md text-tertiary font-bold text-right">+$150.00</td>
+</tr>
+<tr class="hover:bg-primary/5 transition-colors">
+<td class="px-lg py-sm text-body-md text-on-surface">Oct 12, 2023</td>
+<td class="px-lg py-sm text-body-md text-on-surface-variant">Scholarship Bonus</td>
+<td class="px-lg py-sm">
+<span class="bg-primary/10 text-primary px-xs py-xxs rounded text-label-sm font-medium border border-primary/20">Laptop Pro</span>
+</td>
+<td class="px-lg py-sm text-body-md text-tertiary font-bold text-right">+$500.00</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+</main>
+<!-- Contextual FAB -->
+<button class="fixed bottom-lg right-lg w-16 h-16 bg-primary text-on-primary rounded-full shadow-lg flex items-center justify-center active:scale-95 transition-transform z-50 hover:brightness-110">
+<span class="material-symbols-outlined text-[32px]" style="font-variation-settings: 'FILL' 1;">add</span>
+</button>
+</body></html>

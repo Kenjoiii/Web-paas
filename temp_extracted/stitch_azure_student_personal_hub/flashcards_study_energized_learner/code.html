@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>StudyPro | Flashcards</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              "colors": {
+                      "surface": "#f7f9fb",
+                      "outline-variant": "#c4c5d9",
+                      "on-background": "#191c1e",
+                      "tertiary": "#00623d",
+                      "surface-tint": "#104af0",
+                      "secondary": "#7b24dc",
+                      "secondary-container": "#9547f7",
+                      "primary": "#0040df",
+                      "on-tertiary-fixed-variant": "#005232",
+                      "background": "#f7f9fb",
+                      "on-tertiary-fixed": "#002111",
+                      "on-primary-fixed": "#001355",
+                      "surface-container-highest": "#e0e3e5",
+                      "on-surface": "#191c1e",
+                      "primary-fixed-dim": "#b8c3ff",
+                      "surface-dim": "#d8dadc",
+                      "on-error-container": "#93000a",
+                      "on-primary-container": "#efefff",
+                      "primary-fixed": "#dde1ff",
+                      "tertiary-container": "#007d4f",
+                      "on-surface-variant": "#434656",
+                      "primary-container": "#2d5bff",
+                      "error-container": "#ffdad6",
+                      "outline": "#747688",
+                      "surface-container": "#eceef0",
+                      "surface-bright": "#f7f9fb",
+                      "on-error": "#ffffff",
+                      "inverse-surface": "#2d3133",
+                      "tertiary-fixed": "#50ffaf",
+                      "on-secondary-container": "#fffbff",
+                      "on-tertiary": "#ffffff",
+                      "secondary-fixed-dim": "#d8b9ff",
+                      "surface-container-low": "#f2f4f6",
+                      "inverse-on-surface": "#eff1f3",
+                      "tertiary-fixed-dim": "#00e293",
+                      "on-secondary": "#ffffff",
+                      "on-tertiary-container": "#bcffd5",
+                      "error": "#ba1a1a",
+                      "on-primary-fixed-variant": "#0035bd",
+                      "on-secondary-fixed-variant": "#6200bc",
+                      "inverse-primary": "#b8c3ff",
+                      "on-secondary-fixed": "#290055",
+                      "on-primary": "#ffffff",
+                      "surface-container-high": "#e6e8ea",
+                      "surface-container-lowest": "#ffffff",
+                      "surface-variant": "#e0e3e5",
+                      "secondary-fixed": "#eddcff"
+              },
+              "borderRadius": {
+                      "DEFAULT": "0.25rem",
+                      "lg": "0.5rem",
+                      "xl": "0.75rem",
+                      "full": "9999px",
+                      "xxl": "2rem"
+              },
+              "spacing": {
+                      "unit": "8px",
+                      "margin-mobile": "16px",
+                      "card-gap": "20px",
+                      "gutter": "24px",
+                      "container-padding": "32px",
+                      "xxs": "4px",
+                      "xs": "8px",
+                      "sm": "12px",
+                      "md": "16px",
+                      "lg": "24px",
+                      "xl": "32px",
+                      "xxl": "48px"
+              },
+              "fontFamily": {
+                      "headline-lg": ["Poppins"],
+                      "label-bold": ["Poppins"],
+                      "body-md": ["Poppins"],
+                      "display-lg": ["Poppins"],
+                      "headline-md": ["Poppins"],
+                      "headline-lg-mobile": ["Poppins"],
+                      "body-lg": ["Poppins"],
+                      "label-sm": ["Poppins"],
+                      "label-md": ["Poppins"]
+              },
+              "fontSize": {
+                      "headline-lg": ["32px", {"lineHeight": "40px", "letterSpacing": "-0.01em", "fontWeight": "700"}],
+                      "label-bold": ["14px", {"lineHeight": "20px", "fontWeight": "600"}],
+                      "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                      "display-lg": ["48px", {"lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                      "headline-md": ["24px", {"lineHeight": "32px", "fontWeight": "600"}],
+                      "headline-lg-mobile": ["24px", {"lineHeight": "32px", "fontWeight": "700"}],
+                      "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "400"}],
+                      "label-sm": ["12px", {"lineHeight": "16px", "fontWeight": "500"}],
+                      "label-md": ["14px", {"lineHeight": "20px", "fontWeight": "500"}]
+              }
+            },
+          },
+        }
+    </script>
+<style>
+        .perspective { perspective: 1000px; }
+        .preserve-3d { transform-style: preserve-3d; }
+        .backface-hidden { backface-visibility: hidden; }
+        .rotate-y-180 { transform: rotateY(180deg); }
+        .flashcard-inner { transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1); }
+        .card-active .flashcard-inner { transform: rotateY(180deg); }
+        .material-symbols-outlined { font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24; }
+    </style>
+</head>
+<body class="bg-background text-on-background font-body-md min-h-screen">
+<aside class="w-[280px] h-screen fixed left-0 top-0 bg-surface-container-lowest border-r border-outline-variant flex flex-col py-md z-[60]">
+<div class="px-lg mb-xl">
+<h1 class="font-headline-md text-headline-md font-bold text-primary">StudyPro</h1>
+<p class="text-on-surface-variant text-label-sm">Academic Excellence</p>
+</div>
+<nav class="flex-1 space-y-1">
+<a class="flex items-center gap-sm h-12 text-on-surface-variant hover:text-primary mx-2 px-md hover:bg-primary-container/10 transition-colors duration-200 rounded-lg" href="#">
+<span class="material-symbols-outlined">dashboard</span>
+<span class="font-body-md">Dashboard</span>
+</a>
+<a class="flex items-center gap-sm h-12 text-on-surface-variant hover:text-primary mx-2 px-md hover:bg-primary-container/10 transition-colors duration-200 rounded-lg" href="#">
+<span class="material-symbols-outlined">description</span>
+<span class="font-body-md">Notes</span>
+</a>
+<a class="flex items-center gap-sm h-12 text-on-surface-variant hover:text-primary mx-2 px-md hover:bg-primary-container/10 transition-colors duration-200 rounded-lg" href="#">
+<span class="material-symbols-outlined">checklist</span>
+<span class="font-body-md">Tasks</span>
+</a>
+<a class="flex items-center gap-sm h-12 bg-primary text-on-primary rounded-lg mx-2 px-md active:scale-95 transition-transform shadow-md shadow-primary/20" href="#">
+<span class="material-symbols-outlined">quiz</span>
+<span class="font-body-md font-semibold">Flashcards</span>
+</a>
+<a class="flex items-center gap-sm h-12 text-on-surface-variant hover:text-primary mx-2 px-md hover:bg-primary-container/10 transition-colors duration-200 rounded-lg" href="#">
+<span class="material-symbols-outlined">calendar_month</span>
+<span class="font-body-md">Calendar</span>
+</a>
+<a class="flex items-center gap-sm h-12 text-on-surface-variant hover:text-primary mx-2 px-md hover:bg-primary-container/10 transition-colors duration-200 rounded-lg" href="#">
+<span class="material-symbols-outlined">payments</span>
+<span class="font-body-md">Wishlist</span>
+</a>
+</nav>
+<div class="mt-auto px-2 space-y-1">
+<button class="w-full mb-md flex items-center justify-center gap-xs bg-secondary-container text-on-secondary-container h-12 rounded-xl font-label-bold active:scale-95 transition-transform shadow-lg shadow-secondary-container/30">
+<span class="material-symbols-outlined">add</span>
+            Quick Note
+        </button>
+<a class="flex items-center gap-sm h-12 text-on-surface-variant hover:text-on-surface px-md hover:bg-surface-container transition-colors duration-200 rounded-lg" href="#">
+<span class="material-symbols-outlined">settings</span>
+<span class="font-body-md">Settings</span>
+</a>
+<a class="flex items-center gap-sm h-12 text-on-surface-variant hover:text-error px-md hover:bg-error-container/10 transition-colors duration-200 rounded-lg" href="#">
+<span class="material-symbols-outlined">logout</span>
+<span class="font-body-md">Logout</span>
+</a>
+</div>
+</aside>
+<header class="flex justify-between items-center h-16 ml-[280px] px-gutter sticky top-0 z-50 bg-background/80 backdrop-blur-md border-b border-outline-variant/30">
+<div class="flex items-center bg-surface-container border border-outline-variant rounded-full px-md py-xs w-96 shadow-sm">
+<span class="material-symbols-outlined text-on-surface-variant mr-xs">search</span>
+<input class="bg-transparent border-none focus:ring-0 text-label-md text-on-surface placeholder:text-on-surface-variant w-full" placeholder="Search decks or notes..." type="text"/>
+</div>
+<div class="flex items-center gap-lg">
+<div class="flex items-center gap-sm">
+<button class="w-10 h-10 rounded-full flex items-center justify-center text-on-surface-variant hover:bg-surface-container transition-colors">
+<span class="material-symbols-outlined">notifications</span>
+</button>
+<button class="w-10 h-10 rounded-full flex items-center justify-center text-on-surface-variant hover:bg-surface-container transition-colors">
+<span class="material-symbols-outlined">help</span>
+</button>
+</div>
+<div class="w-10 h-10 rounded-full ring-2 ring-primary/20 overflow-hidden bg-surface-container">
+<img alt="User Profile" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCqAufw6flE7_IwyE4cRVSOHmBsemh8ETogvn-IYHUgEWto7zudaqBZND8plEuCv4IQZMZ45VRxhqhwUDotIYD-j0nhgFUKa0uoNVJmrWZVLVAl9TdlQAqVLko1LXSHPTtBZ8myw4D_2GeNA9xh65JUnRWRTx8oPG9tRlzYZNNUxZypJH5B7zhhPoSs4Za_As3KAYvy5lreQ-5LlZIAZKY7AfLTcJRYwxGT0fFZ1su147fYpuLkh1hHk31n-byvysaW03bRAr7E3RKT"/>
+</div>
+</div>
+</header>
+<main class="ml-[280px] p-gutter">
+<div class="grid grid-cols-12 gap-gutter">
+<section class="col-span-3 space-y-md">
+<div class="flex items-center justify-between">
+<h2 class="font-headline-md text-on-surface">My Decks</h2>
+<button class="text-primary hover:underline font-label-bold">Edit</button>
+</div>
+<div class="space-y-sm">
+<div class="p-md bg-white border-2 border-primary-container rounded-xl shadow-md cursor-pointer hover:shadow-lg transition-all transform hover:-translate-y-1">
+<h3 class="font-label-bold text-on-surface">Organic Chemistry II</h3>
+<p class="text-label-sm text-on-surface-variant">42 cards • <span class="text-primary font-bold">12 due today</span></p>
+</div>
+<div class="p-md bg-surface-container-lowest border border-outline-variant rounded-xl cursor-pointer hover:border-primary/50 transition-colors">
+<h3 class="font-label-md text-on-surface">Data Structures &amp; Algos</h3>
+<p class="text-label-sm text-on-surface-variant">85 cards • 5 due today</p>
+</div>
+<div class="p-md bg-surface-container-lowest border border-outline-variant rounded-xl cursor-pointer hover:border-primary/50 transition-colors">
+<h3 class="font-label-md text-on-surface">Modern History 101</h3>
+<p class="text-label-sm text-on-surface-variant">120 cards • Finished</p>
+</div>
+<div class="p-md bg-surface-container-lowest border border-outline-variant rounded-xl cursor-pointer hover:border-primary/50 transition-colors opacity-60">
+<h3 class="font-label-md text-on-surface">Microeconomics</h3>
+<p class="text-label-sm text-on-surface-variant">30 cards • 0 due</p>
+</div>
+<button class="w-full py-md border-2 border-dashed border-outline-variant rounded-xl flex items-center justify-center gap-xs text-on-surface-variant hover:border-primary hover:text-primary transition-all group">
+<span class="material-symbols-outlined group-hover:scale-110 transition-transform">add_circle</span>
+<span class="font-label-bold">Create New Deck</span>
+</button>
+</div>
+<div class="p-lg bg-white border border-outline-variant rounded-xxl mt-xl shadow-sm">
+<h3 class="font-headline-md text-on-surface mb-sm">Stats</h3>
+<div class="space-y-md">
+<div>
+<div class="flex justify-between text-label-sm mb-xxs">
+<span class="text-on-surface-variant">Daily Goal</span>
+<span class="text-primary font-bold">80%</span>
+</div>
+<div class="h-3 w-full bg-surface-container rounded-full overflow-hidden shadow-inner">
+<div class="h-full bg-primary w-[80%] rounded-full shadow-[0_0_8px_rgba(0,64,223,0.4)]"></div>
+</div>
+</div>
+<div class="flex justify-between items-center pt-xs">
+<div class="text-center">
+<p class="text-headline-lg font-bold text-secondary leading-none">12</p>
+<p class="text-label-sm text-on-surface-variant uppercase tracking-wider">Streak</p>
+</div>
+<div class="h-10 w-[1px] bg-outline-variant"></div>
+<div class="text-center">
+<p class="text-headline-lg font-bold text-on-surface leading-none">154</p>
+<p class="text-label-sm text-on-surface-variant uppercase tracking-wider">Cards</p>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section class="col-span-9 flex flex-col items-center">
+<div class="w-full flex justify-between items-center mb-lg">
+<div>
+<h2 class="font-headline-lg text-on-surface">Organic Chemistry II</h2>
+<div class="flex gap-xs mt-xs">
+<span class="px-sm py-1 bg-primary/10 text-primary font-label-bold rounded-full text-xs">Reactive Intermediates</span>
+<span class="px-sm py-1 bg-secondary/10 text-secondary font-label-bold rounded-full text-xs">Week 4</span>
+</div>
+</div>
+<div class="flex items-center gap-sm">
+<span class="text-label-md font-bold text-primary">Card 12 of 42</span>
+<div class="flex gap-xxs">
+<button class="w-10 h-10 rounded-full border border-outline-variant flex items-center justify-center hover:bg-surface-container-high transition-colors">
+<span class="material-symbols-outlined">settings</span>
+</button>
+<button class="w-10 h-10 rounded-full border border-outline-variant flex items-center justify-center hover:bg-surface-container-high transition-colors">
+<span class="material-symbols-outlined">close</span>
+</button>
+</div>
+</div>
+</div>
+<div class="w-full max-w-2xl perspective h-[450px] cursor-pointer group" onclick="this.classList.toggle('card-active')">
+<div class="flashcard-inner relative w-full h-full preserve-3d">
+<!-- Front -->
+<div class="absolute inset-0 bg-white border-2 border-outline-variant rounded-xxl p-xxl flex flex-col items-center justify-center text-center backface-hidden shadow-2xl shadow-primary/5 group-hover:border-primary/30 transition-colors">
+<div class="absolute top-8 left-0 right-0 flex justify-center">
+<span class="px-4 py-1 bg-primary/10 text-primary text-label-sm uppercase tracking-widest rounded-full font-bold">Question</span>
+</div>
+<h4 class="text-headline-lg font-bold text-on-surface leading-snug px-lg">Describe the mechanism and regioselectivity of the E1 reaction.</h4>
+<div class="mt-xxl flex items-center gap-xs text-primary/60 animate-bounce">
+<span class="material-symbols-outlined">touch_app</span>
+<span class="font-label-bold">Click to reveal answer</span>
+</div>
+</div>
+<!-- Back -->
+<div class="absolute inset-0 bg-surface-container-lowest border-2 border-primary rounded-xxl p-xxl flex flex-col items-center justify-center rotate-y-180 backface-hidden shadow-2xl shadow-primary/10 overflow-y-auto">
+<div class="absolute top-8 left-0 right-0 flex justify-center">
+<span class="px-4 py-1 bg-secondary/10 text-secondary text-label-sm uppercase tracking-widest rounded-full font-bold">Answer</span>
+</div>
+<div class="space-y-lg text-left mt-xl">
+<p class="text-body-lg text-on-surface font-medium">The E1 mechanism is a <strong class="text-primary underline decoration-2 underline-offset-4">two-step</strong> process:</p>
+<ul class="space-y-md">
+<li class="flex items-start gap-md">
+<span class="w-6 h-6 rounded-full bg-primary text-white flex items-center justify-center text-xs shrink-0 mt-1">1</span>
+<p class="text-body-md text-on-surface-variant">Rate-determining formation of a carbocation intermediate.</p>
+</li>
+<li class="flex items-start gap-md">
+<span class="w-6 h-6 rounded-full bg-primary text-white flex items-center justify-center text-xs shrink-0 mt-1">2</span>
+<p class="text-body-md text-on-surface-variant">Rapid loss of a beta-proton by a weak base.</p>
+</li>
+<li class="flex items-start gap-md pt-sm">
+<span class="material-symbols-outlined text-secondary shrink-0">star_rate</span>
+<p class="text-body-md text-on-surface">Regioselectivity: Usually follows <strong class="text-secondary">Zaitsev's rule</strong>, favoring the more substituted (stable) alkene.</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<div class="mt-xxl flex gap-lg w-full max-w-2xl">
+<button class="flex-1 flex flex-col items-center gap-xxs p-lg rounded-2xl border-b-4 border-error/20 bg-white hover:bg-error hover:border-error group active:scale-95 transition-all shadow-lg hover:shadow-error/40">
+<span class="font-headline-md text-error group-hover:text-white transition-colors">Hard</span>
+<span class="text-label-sm text-on-surface-variant group-hover:text-white/80 transition-colors">1 day</span>
+</button>
+<button class="flex-1 flex flex-col items-center gap-xxs p-lg rounded-2xl border-b-4 border-primary/20 bg-white hover:bg-primary hover:border-primary group active:scale-95 transition-all shadow-lg hover:shadow-primary/40">
+<span class="font-headline-md text-primary group-hover:text-white transition-colors">Good</span>
+<span class="text-label-sm text-on-surface-variant group-hover:text-white/80 transition-colors">4 days</span>
+</button>
+<button class="flex-1 flex flex-col items-center gap-xxs p-lg rounded-2xl border-b-4 border-tertiary/20 bg-white hover:bg-tertiary hover:border-tertiary group active:scale-95 transition-all shadow-lg hover:shadow-tertiary/40">
+<span class="font-headline-md text-tertiary group-hover:text-white transition-colors">Easy</span>
+<span class="text-label-sm text-on-surface-variant group-hover:text-white/80 transition-colors">7 days</span>
+</button>
+</div>
+<div class="mt-xl flex items-center gap-xl">
+<button class="flex items-center gap-xs text-on-surface-variant hover:text-primary transition-colors font-label-bold group">
+<span class="material-symbols-outlined group-hover:-translate-x-1 transition-transform">arrow_back</span>
+                    Previous
+                </button>
+<button class="flex items-center gap-xs text-on-surface-variant hover:text-primary transition-colors font-label-bold group">
+                    Skip
+                    <span class="material-symbols-outlined group-hover:translate-x-1 transition-transform">arrow_forward</span>
+</button>
+</div>
+</section>
+</div>
+</main>
+</body></html>

@@ -28,27 +28,50 @@ const renderedMarkdown = computed(() => {
 </script>
 
 <template>
-  <section class="notes-page">
-    <header class="page-header">
-      <div>
-        <p class="eyebrow">Catatan Pelajar</p>
-        <h1>Catatan Markdown Pribadi</h1>
-        <p>Simpan ringkasan, materi, dan ide belajar di sini. Lihat preview secara langsung.</p>
-      </div>
-      <button class="button primary" @click="saveNote">Simpan Catatan</button>
-    </header>
-
-    <div class="notes-grid">
-      <div class="editor-card">
-        <div class="panel-title">Tulis Catatan</div>
-        <textarea v-model="noteText" rows="18" />
-      </div>
-      <div class="preview-card">
-        <div class="panel-title">Preview</div>
-        <div class="preview-content" v-html="renderedMarkdown"></div>
-      </div>
+  <!-- Page Header -->
+  <div class="flex justify-between items-end mb-xl">
+    <div>
+      <h2 class="font-headline-lg text-headline-lg text-on-surface">Knowledge Vault</h2>
+      <p class="font-body-lg text-body-lg text-on-surface-variant">
+        Capture your thoughts, ideas, and study notes in a structured markdown format.
+      </p>
     </div>
-  </section>
+    <button
+      class="vibrant-gradient text-white px-xl py-md rounded-xl font-label-bold shadow-lg shadow-primary/20 hover:scale-[1.02] active:scale-95 transition-transform"
+      @click="saveNote"
+    >
+      <span class="material-symbols-outlined mr-sm">save</span>
+      Save Notes
+    </button>
+  </div>
+
+  <!-- Notes Grid -->
+  <div class="grid grid-cols-1 lg:grid-cols-2 gap-card-gap">
+    <!-- Editor Panel -->
+    <div class="energized-card p-lg">
+      <div class="flex items-center mb-md">
+        <span class="material-symbols-outlined text-primary mr-sm">edit_note</span>
+        <h3 class="font-headline-md text-headline-md text-on-surface">Editor</h3>
+      </div>
+      <textarea
+        v-model="noteText"
+        class="w-full h-96 border border-outline-variant rounded-lg p-md focus:border-primary focus:ring-1 focus:ring-primary outline-none resize-none font-mono text-sm"
+        placeholder="Write your markdown notes here..."
+      ></textarea>
+    </div>
+
+    <!-- Preview Panel -->
+    <div class="energized-card p-lg">
+      <div class="flex items-center mb-md">
+        <span class="material-symbols-outlined text-secondary mr-sm">visibility</span>
+        <h3 class="font-headline-md text-headline-md text-on-surface">Preview</h3>
+      </div>
+      <div
+        class="preview-content h-96 overflow-y-auto border border-outline-variant rounded-lg p-md bg-surface-container"
+        v-html="renderedMarkdown"
+      ></div>
+    </div>
+  </div>
 </template>
 
 <style scoped>

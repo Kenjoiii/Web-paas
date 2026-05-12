@@ -1,5 +1,6 @@
 <script setup>
 import { ref, computed } from 'vue'
+const showAddForm = ref(false)
 const newTask = ref('')
 const newDue = ref('')
 const tasks = ref([
@@ -12,6 +13,7 @@ const addTask = () => {
   tasks.value.push({ title: newTask.value.trim(), due: newDue.value, done: false })
   newTask.value = ''
   newDue.value = ''
+  showAddForm.value = false
 }
 const toggleDone = (task) => {
   task.done = !task.done
@@ -25,54 +27,129 @@ const sortedTasks = computed(() =>
 </script>
 
 <template>
-  <section class="todo-page">
-    <header class="page-header">
-      <div>
-        <p class="eyebrow">To-Do List</p>
-        <h1>Kelola Deadline dan Tugasmu</h1>
-        <p>
-          Tambahkan tugas, atur tanggal deadline, dan tandai yang sudah selesai agar fokus belajarmu
-          tetap terjaga.
-        </p>
-      </div>
-    </header>
-
-    <div class="todo-panel">
-      <div class="todo-form">
-        <label>Judul Tugas</label>
-        <input v-model="newTask" placeholder="Contoh: Pelajari bab 5" />
-        <label>Tanggal Deadline</label>
-        <input type="date" v-model="newDue" />
-        <button class="button primary" @click="addTask">Tambah Tugas</button>
-      </div>
-      <div class="task-list">
-        <div v-for="(task, index) in sortedTasks" :key="task.title + task.due" class="task-item">
-          <div>
-            <h3 :class="{ done: task.done }">{{ task.title }}</h3>
-            <p>
-              Deadline:
-              {{
-                new Date(task.due).toLocaleDateString('id-ID', {
-                  day: 'numeric',
-                  month: 'long',
-                  year: 'numeric',
-                })
-              }}
-            </p>
-          </div>
-          <div class="task-actions">
-            <button class="button tertiary" @click="toggleDone(task)">
-              {{ task.done ? 'Batal' : 'Selesai' }}
-            </button>
-            <button class="button danger" @click="removeTask(index)">Hapus</button>
-          </div>
-        </div>
-        <div v-if="sortedTasks.length === 0" class="empty-state">
-          Belum ada tugas. Tambahkan tugas baru untuk mulai.
-        </div>
-      </div>
+  <!-- Page Header -->
+  <div class="flex justify-between items-end mb-xl">
+    <div>
+      <h2 class="font-headline-lg text-headline-lg text-on-surface">Academic Pipeline</h2>
+      <p class="font-body-lg text-body-lg text-on-surface-variant">
+        Manage your tasks, deadlines, and academic goals with precision.
+      </p>
     </div>
-  </section>
+    <button
+      class="vibrant-gradient text-white px-xl py-md rounded-xl font-label-bold shadow-lg shadow-primary/20 hover:scale-[1.02] active:scale-95 transition-transform"
+      @click="showAddForm = !showAddForm"
+    >
+      <span class="material-symbols-outlined mr-sm">add</span>
+      New Task
+    </button>
+  </div>
+
+  <!-- Add Task Form -->
+  <div v-if="showAddForm" class="energized-card p-lg mb-xl">
+    <h3 class="font-headline-md text-headline-md text-on-surface mb-md">Add New Task</h3>
+    <form @submit.prevent="addTask" class="grid grid-cols-1 md:grid-cols-3 gap-md">
+      <div>
+        <label class="block font-label-bold text-label-bold text-on-surface mb-xs"
+          >Task Title</label
+        >
+        <input
+          v-model="newTask"
+          class="w-full border border-outline-variant rounded-lg px-md py-sm focus:border-primary focus:ring-1 focus:ring-primary outline-none"
+          placeholder="e.g., Study for Math Exam"
+          required
+          type="text"
+        />
+      </div>
+      <div>
+        <label class="block font-label-bold text-label-bold text-on-surface mb-xs">Deadline</label>
+        <input
+          v-model="newDue"
+          class="w-full border border-outline-variant rounded-lg px-md py-sm focus:border-primary focus:ring-1 focus:ring-primary outline-none"
+          required
+          type="date"
+        />
+      </div>
+      <div class="flex items-end">
+        <button
+          class="w-full vibrant-gradient text-white py-sm rounded-lg font-label-bold shadow-lg shadow-primary/20 hover:brightness-110 active:scale-95 transition-all"
+          type="submit"
+        >
+          Add Task
+        </button>
+      </div>
+    </form>
+  </div>
+
+  <!-- Tasks Grid -->
+  <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-card-gap">
+    <div
+      v-for="(task, index) in sortedTasks"
+      :key="task.title + task.due"
+      class="energized-card p-lg"
+    >
+      <div class="flex justify-between items-start mb-md">
+        <div class="flex-1">
+          <h3
+            :class="{ 'line-through text-on-surface-variant': task.done }"
+            class="font-headline-md text-headline-md text-on-surface mb-xs"
+          >
+            {{ task.title }}
+          </h3>
+          <p class="font-body-md text-body-md text-on-surface-variant">
+            Due:
+            {{
+              new Date(task.due).toLocaleDateString('en-US', {
+                weekday: 'long',
+                year: 'numeric',
+                month: 'long',
+                day: 'numeric',
+              })
+            }}
+          </p>
+        </div>
+        <div class="flex gap-xs">
+          <button
+            class="text-secondary hover:text-primary transition-colors"
+            @click="toggleDone(task)"
+          >
+            <span class="material-symbols-outlined" :class="{ 'text-primary': task.done }">{{
+              task.done ? 'check_circle' : 'radio_button_unchecked'
+            }}</span>
+          </button>
+          <button
+            class="text-error hover:text-error/80 transition-colors"
+            @click="removeTask(index)"
+          >
+            <span class="material-symbols-outlined">delete</span>
+          </button>
+        </div>
+      </div>
+      <div class="w-full bg-surface-container rounded-full h-2 mb-sm">
+        <div
+          :class="{ 'bg-tertiary': task.done, 'bg-primary': !task.done }"
+          class="h-full rounded-full transition-all duration-300"
+          :style="{ width: task.done ? '100%' : '0%' }"
+        ></div>
+      </div>
+      <p class="font-label-sm text-label-sm text-on-surface-variant">
+        {{ task.done ? 'Completed' : 'In Progress' }}
+      </p>
+    </div>
+    <div v-if="sortedTasks.length === 0" class="col-span-full text-center py-xxl">
+      <span class="material-symbols-outlined text-6xl text-outline-variant mb-md">task_alt</span>
+      <h3 class="font-headline-lg text-headline-lg text-on-surface mb-sm">No tasks yet</h3>
+      <p class="font-body-lg text-body-lg text-on-surface-variant mb-lg">
+        Create your first task to get started with your academic pipeline.
+      </p>
+      <button
+        class="vibrant-gradient text-white px-xl py-md rounded-xl font-label-bold shadow-lg shadow-primary/20 hover:scale-[1.02] active:scale-95 transition-transform"
+        @click="showAddForm = true"
+      >
+        <span class="material-symbols-outlined mr-sm">add</span>
+        Add Your First Task
+      </button>
+    </div>
+  </div>
 </template>
 
 <style scoped>
