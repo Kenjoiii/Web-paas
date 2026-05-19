@@ -82,7 +82,7 @@ const mobileOpen = ref(false)
           }"
         >
           <span class="material-symbols-outlined mr-sm">payments</span>
-          <span class="font-body-md text-body-md">Wishlist</span>
+          <span class="font-body-md text-body-md">Piggy Bank</span>
         </router-link>
       </nav>
       <div class="px-lg mt-auto space-y-4">
